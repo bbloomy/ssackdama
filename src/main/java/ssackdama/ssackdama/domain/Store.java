@@ -5,14 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "STORE")
+@Table(name = "stores")
 
-public class Store {
+public class Store extends BaseEntity{
 
     /*
         non-constant field name : lowerCamelCase
      */
-    private int storeId;
     private int storeName;
     private Images storeImages;
     private String storeAddress;
