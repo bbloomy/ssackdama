@@ -1,34 +1,21 @@
 package ssackdama.ssackdama.domain;
 
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "STORE")
+
 public class Store {
 
-    //가게 dto!
+    /*
+        non-constant field name : lowerCamelCase
+     */
+    private int storeId;
+    private int storeName;
+    private Images storeImages;
+    private String storeAddress;
+    private int storePhoneNumber;
 
 }
-
-/* ---dto 예제--------
-package board.board.dto;
-
-import lombok.Data;
-
-@Data
-public class BoardDto {
-
-    private int boardIdx;
-
-    private String title;
-
-    private String contents;
-
-    private int hitCnt;
-
-    private String creatorId;
-
-    private String createdDatetime;
-
-    private String updaterId;
-
-    private String updatedDatetime;
-}
-
- */

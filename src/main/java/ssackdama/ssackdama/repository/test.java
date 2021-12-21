@@ -1,4 +1,4 @@
-package ssackdama.ssackdama.mapper;
+package ssackdama.ssackdama.repository;
 
 
 import org.springframework.stereotype.Repository;
