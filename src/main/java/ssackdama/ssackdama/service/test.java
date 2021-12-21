@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class test {
+
+
     //비지니스 로직을 처리 @Service 선언
     // 컨트롤러가 서비스 호출! 서비시는 데이터베이스에 접근하는 dao를 이용해 결과값 받아옴.
 }
