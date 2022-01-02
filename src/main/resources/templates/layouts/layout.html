@@ -1,18 +1,97 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../../static/css/index.css">
 
-<html   xmlns:th="http://www.thymeleaf.org"
-        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
->
-
-    <th:block th:replace="fragments/config ::configFragment"></th:block>
-
+    <!--<th:block th:replace="fragments/config ::configFragment"></th:block>-->
+<head>
+    <meta charset="UTF-8">
+    <title>ssackdama</title>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 제이쿼리 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
     <body>
         <!--header-->
         <th:block th:replace="fragments/header :: headerFragment(header)"></th:block>
 
         <!--content-->
         <th:block layout:fragment="content">
+            <div class="container">
 
+                <div class="container">
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col" id="advertise" area-label="광고 영역">
+                        <div id="adCarousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#adCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#adCarousel" data-slide-to="1"></li>
+                                <li data-target="#adCarousel" data-slide-to="2"></li>
+                            </ol>
+
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="../../../static/img/banner-ad1.png" style="width:100%;">
+                                </div>
+
+                                <div class="item">
+                                    <img src="../../../static/img/banner-ad2.png"  style="width:100%;">
+                                </div>
+
+                                <div class="item">
+                                    <img src="../../../static/img/banner-ad3.png"  style="width:100%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col" area-label="지금 바로 올라온 공고 영역">
+                        <div class="main_title">지금 바로 올라온 공고&nbsp
+                                <img src="../../../static/img/emoji-smile.svg"/>
+                        </div>
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <img src="../../../static/img/food.svg" class="img-fluid rounded-start">
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="card-body">
+                                        <div class="card-title">팟타이</div>
+                                        <p class="card-text"> 남은 수량 : 5인분</p>
+                                        <p class="card-text"> Last Order : 10시 30분</p>
+                                        <p class="card-text"><small class="text-muted">3분전 업로드</small></p>
+                                        <p class="card-text"> 자세히 보러가기</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+                            <div class="main_title">내 주변 마감세일 찾기&nbsp
+                                <img src="../../../static/img/geo-alt.svg"/>
+                            </div>
+                    </div>
+                    <div class="col">
+                        <div style="display:flex;">
+                            <div class="main_title">우리 동네 가게 홍보&nbsp
+                                <img src="../../../static/img/shop.svg"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </th:block>
 
         <!--footer-->

@@ -4,7 +4,7 @@ package ssackdama.ssackdama.repository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class test {
+public class UserRepository {
     
     // 실제 db와 연결되는 영역 (dao 작성) 
     //보통 실행 될 쿼리가 들어감
