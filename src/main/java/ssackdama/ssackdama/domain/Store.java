@@ -14,7 +14,7 @@ public class Store extends BaseEntity{
      */
     private int storeName;
     private Images storeImages;
-    private String storeAddress;
+    private Address storeAddress;
     private int storePhoneNumber;
 
 }

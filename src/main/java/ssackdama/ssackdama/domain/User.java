@@ -6,18 +6,18 @@ import java.util.Date;
 
 @MappedSuperclass
 public abstract class User extends BaseEntity{
-    @Column(name="email")
-    private String email;
+    @Column(name="email",nullable = false)
+    private Email email;
 
-    @Column(name="password")
+    @Column(name="password",nullable = false)
     private String password;
 
-    @Column(name="userName")
+    @Column(name="userName",nullable = false)
     private String userName;
 
     @Column(name="address")
-    private String address;
+    private Address address;
 
-    @Column(name="joinDate")
+    @Column(name="joinDate",nullable = false)
     private Date joinDate;
 }
