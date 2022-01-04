@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../../../static/css/index.css">
+
+<!--<th:block th:replace="fragments/config ::configFragment"></th:block>-->
+<head>
+    <meta charset="UTF-8">
+    <title>ssackdama</title>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 제이쿼리 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--content-->
+<th:block layout:fragment="content">
+    <div class="container" style="display:flex;justify-content: center;">
+        <div  style="width: 516px;height: 546px;left: 462px;top: 190px; padding:100px;">
+            <div style="display:flex;font-family: Inter; font-style:Semi Bold; font-size: 33px;justify-content: center;">
+                회원 가입</div>
+            <form>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="inputName" style="color:#8A92A6;">이름</label>
+                        <input type="string" class="form-control" id="inputName">
+                    </div>
+                    <label for="inputEmail" style="color:#8A92A6;">이메일 주소</label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword"style="color:#8A92A6;">비밀번호</label>
+                    <input type="password" class="form-control" id="inputPassword">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword"style="color:#8A92A6;">비밀번호 확인</label>
+                    <input type="password" class="form-control" id="confirmPassword">
+                </div>
+                <div class="form-group">
+                    <label for="inputaddress"style="color:#8A92A6;">주소</label>
+                    <input type="password" class="form-control" id="inputaddress">
+                </div>
+                <div style="display:flex;justify-content:space-between;">
+                    <div class="form-group form-check" >
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label" style="color:#8A92A6;"for="rememberMe">remember me?</label>
+                    </div>
+                    <div style="color:#FEBD01;">비밀번호를 잊으셨습니까?</div>
+                </div>
+
+                <div style="display:flex;justify-content:center;">
+                    <button type="submit" class="btn btn-primary" style="height: 44px;width: 188px;background: #FEBD01;border:0px;border-radius: 4px;">Sign In</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</th:block>
+</body>
+</html>
