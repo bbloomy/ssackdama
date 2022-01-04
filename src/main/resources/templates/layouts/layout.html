@@ -23,14 +23,9 @@
         <!--content-->
         <th:block layout:fragment="content">
             <div class="container">
-
-                <div class="container">
-
-                </div>
-
-
                 <div class="row">
-                    <div class="col" id="advertise" area-label="광고 영역">
+                    <!--광고 영역-->
+                    <div class="col" area-label="광고 영역">
                         <div id="adCarousel" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <li data-target="#adCarousel" data-slide-to="0" class="active"></li>
@@ -53,7 +48,13 @@
                             </div>
                         </div>
                     </div>
-
+                    <!--카테고리-->
+                    <div class="col"  area-label="카테고리">
+                        <div  style="padding:25px 0px 0px 0px">
+                            <div style="height:100px;background:#AfB5BE;">자세히 검색하러 가기</div>
+                        </div>
+                    </div>
+                    <!--지금 바로 올라온 공고 영역-->
                     <div class="col" area-label="지금 바로 올라온 공고 영역">
                         <div class="main_title">지금 바로 올라온 공고&nbsp
                                 <img src="../../../static/img/emoji-smile.svg"/>
@@ -97,12 +98,11 @@
                         </div>
                     </div>
 
-
-                    <div class="col">
+                    <!--내 주변 마감세일 찾기-->
+                    <div class="col"  area-label="내 주변 마감세일 찾기">
                         <div class="main_title">내 주변 마감세일 찾기&nbsp
                             <img src="../../../static/img/geo-alt.svg"/>
                         </div>
-
                         <div class="main_area">
                         <div class="form-group row" style="display:flex;justify-content: flex-end;">
                                 <div class="area_picker">
@@ -129,21 +129,20 @@
                                     </div>
                                 </div>
                             </div>
-
-                        <div class="row">
-<!--지도 필요함-->
-                        </div>
-
+                            <!--지도 필요함-->
                         <div id="map_area"></div>
                     </div>
-                    <div class="col">
+                    </div>
+
+                    <!--우리 동네 가게 홍보-->
+                    <div class="col"area-label="우리 동네 가게 홍보">
                         <div class="main_title">우리 동네 가게 홍보&nbsp
                                 <img src="../../../static/img/shop.svg"/>
                         </div>
                         <div class="main_area">
                         <div class="form-group row" style="display:flex;justify-content: flex-end;align-items: center;">
-                            <label for="keywordform" class="col-sm-1 col-form-label">키워드</label>
-                            <div class="col-sm-2">
+                            <label for="keywordform" class="col-sm-2 col-form-label">키워드</label>
+                            <div class="col-sm-3">
                             <select class="form-control" id="keywordform">
                                 <option>한식</option>
                                 <option>중식</option>
@@ -155,6 +154,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </th:block>
 
