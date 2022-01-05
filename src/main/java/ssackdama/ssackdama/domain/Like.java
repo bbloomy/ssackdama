@@ -11,8 +11,8 @@ import java.util.Date;
 
 public class Like extends BaseEntity{
 
-    private Product store;
-    private User user;
-    private Date expireDate;
+//    private Product store;
+//    private User user;
+//    private Date expireDate;
 
 }
