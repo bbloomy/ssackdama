@@ -12,13 +12,23 @@ public class MainController {
     @GetMapping("/")
     public String test(Model model){
         model.addAttribute("data","테스트 중");
-        return "index";
+        return "pages/index";
     }
 
     @GetMapping("/main")
     public String main(Model model){
         model.addAttribute("data","테스트 중");
-        return "index";
+        return "pages/index";
+    }
+    @GetMapping("/signup")
+    public String signup(Model model){
+        model.addAttribute("data","테스트 중");
+        return "pages/signup";
+    }
+    @GetMapping("/login")
+    public String login(Model model){
+        model.addAttribute("data","테스트 중");
+        return "pages/login";
     }
 
 }
