@@ -46,9 +46,7 @@
     border-radius: 0px 4px 4px 0px;
     color:#DEE2E6;
 }
-.main_area{
-     margin-left:20px;
-     margin-right:20px;}
+
 .card-list{
      display:flex;
      overflow-y: hidden;
@@ -70,6 +68,7 @@
       margin:5px;
       border:1px solid #ABB5BE;
       border-radius:5px;
+        flex-direction:column;
 }
 @media (min-width: 992px) {
     .card{
@@ -78,6 +77,7 @@
         border:1px solid #ABB5BE;
         border-radius:5px;
         display:flex;
+      flex-direction:row;
         align-items: center;
     }
 }

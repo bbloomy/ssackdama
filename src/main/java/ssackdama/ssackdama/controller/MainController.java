@@ -18,7 +18,7 @@ public class MainController {
     @GetMapping("/main")
     public String main(Model model){
         model.addAttribute("data","테스트 중");
-        return "layouts/layout";
+        return "index";
     }
 
 }
