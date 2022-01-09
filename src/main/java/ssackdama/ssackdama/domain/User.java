@@ -1,23 +1,27 @@
 package ssackdama.ssackdama.domain;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.util.Date;
 
-//@MappedSuperclass
+@MappedSuperclass
 public abstract class User extends BaseEntity{
-//    @Column(name="email",nullable = false)
-//    private Email email;
-//
-//    @Column(name="password",nullable = false)
-//    private String password;
-//
-//    @Column(name="userName",nullable = false)
-//    private String userName;
-//
-//    @Column(name="address")
-//    private Address address;
-//
-//    @Column(name="joinDate",nullable = false)
-//    private Date joinDate;
+    @Id
+    @Column(name="user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name="email",nullable = false)
+    private Email email;
+
+    @Column(name="password",nullable = false)
+    private String password;
+
+    @Column(name="userName",nullable = false)
+    private String userName;
+
+    @Embedded
+    private Address address;
+
+    @Column(name="joinDate",nullable = false)
+    private Date joinDate;
 }

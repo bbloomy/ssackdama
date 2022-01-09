@@ -1,14 +1,16 @@
 package ssackdama.ssackdama.domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
-//@Entity
-//@Table(name = "product")
+@Entity
 
 public class Product extends BaseEntity {
+    @Id
+    @GeneratedValue
+    @Column(name="PRODUCT_ID")
+    private Long id;
 
     private Store store;
     private String name;

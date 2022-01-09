@@ -1,8 +1,9 @@
 package ssackdama.ssackdama.domain;
 
-import javax.persistence.Entity;
+import javax.persistence.Embeddable;
 
-//@Entity
-public class Address {
+@Embeddable
+public class Address{
+
     private String si, gun, gu, detail;
 }

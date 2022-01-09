@@ -1,18 +1,21 @@
 package ssackdama.ssackdama.domain;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
-
+@Entity
 public class OrderDetail extends BaseEntity{
-//     @ManyToOne
-//     @JoinColumn(name="PRODUCT_ID")
-//     private Product product;
+     @Id
+     @GeneratedValue
+     @Column(name="ORDER_DETAIL_ID")
+     private Long id;
 
-//     @ManyToOne
-//     @JoinColumn(name="ORDER_ID")
-//     private Order order;
+     @ManyToOne
+     @JoinColumn(name="PRODUCT_ID")
+     private Product product;
 
-//     private Integer quantity;
+     @ManyToOne
+     @JoinColumn(name="ORDER_ID")
+     private Orders orders;
+
+     private Integer quantity;
 }
