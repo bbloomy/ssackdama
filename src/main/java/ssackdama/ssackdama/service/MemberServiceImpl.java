@@ -15,5 +15,10 @@ public interface MemberServiceImpl {
     // 회원 탈퇴
     public void resign(User user);
 
-    //
+    // 로그인
+    public void login(User user);
+
+    // 로그아웃
+    public void logout(User user);
+
 }

@@ -2,10 +2,11 @@ package ssackdama.ssackdama.repository;
 
 
 import org.springframework.stereotype.Repository;
+import ssackdama.ssackdama.domain.User;
 
 @Repository
-public class UserRepository {
-    
+public interface UserRepository {
+
     // 실제 db와 연결되는 영역 (dao 작성) 
     //보통 실행 될 쿼리가 들어감
 }

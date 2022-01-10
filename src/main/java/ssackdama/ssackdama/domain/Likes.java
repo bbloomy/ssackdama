@@ -7,9 +7,7 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "likes")
-
-public class Like extends BaseEntity{
+public class Likes extends BaseEntity{
 
     private Product store;
     private User user;

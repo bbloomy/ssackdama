@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="customers")
 public class Customer extends User{
     @Id
     @Column(name="CUSTOMER_ID")
