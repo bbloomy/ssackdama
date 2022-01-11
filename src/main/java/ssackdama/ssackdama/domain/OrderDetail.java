@@ -3,11 +3,9 @@ package ssackdama.ssackdama.domain;
 import javax.persistence.*;
 
 @Entity
+//@AttributeOverride(name="id", column = @Column(name="ORDER_DETAIL_ID"))
+
 public class OrderDetail extends BaseEntity{
-     @Id
-     @GeneratedValue
-     @Column(name="ORDER_DETAIL_ID")
-     private Long id;
 
      @ManyToOne
      @JoinColumn(name="PRODUCT_ID")

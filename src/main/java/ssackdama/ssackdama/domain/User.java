@@ -11,13 +11,9 @@ import java.util.Date;
 @Getter @Setter
 @DiscriminatorColumn(name="role")
 @Entity
+@AttributeOverride(name="id", column = @Column(name="USER_ID"))
 
-public class User extends BaseEntity{
-    @Id
-    @Column(name="user_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class User extends BaseTimeEntity{
     @Column(name="email",nullable = false)
     private Email email;
 
@@ -30,6 +26,4 @@ public class User extends BaseEntity{
     @Embedded
     private Address address;
 
-    @Column(name="joinDate",nullable = false)
-    private Date joinDate;
 }

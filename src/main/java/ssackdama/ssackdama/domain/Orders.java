@@ -6,10 +6,9 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@AttributeOverride(name="id", column = @Column(name="ORDER_ID"))
+
 public class Orders extends  BaseEntity{
-     @Id @GeneratedValue
-     @Column(name="ORDER_ID")
-     private Long id;
 
      @ManyToOne
      //@JoinColumn(name="CUSTOMER_ID")
