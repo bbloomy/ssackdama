@@ -34,9 +34,14 @@ public class MainController {
         return "redirect:/";
     }
     @GetMapping("/login")
-    public String login(Model model){
+    public String loginpage(Model model){
         model.addAttribute("data","테스트 중");
         return "pages/login";
+    }
+    @PostMapping("/login")
+    public String login(User user){
+
+        return "redirect:/";
     }
 
 }
