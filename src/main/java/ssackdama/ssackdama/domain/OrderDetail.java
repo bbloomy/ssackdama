@@ -7,11 +7,11 @@ import javax.persistence.*;
 
 public class OrderDetail extends BaseEntity{
 
-     @ManyToOne
+     @ManyToOne(fetch=FetchType.LAZY)//나중에 JPQL에서의 패치 조인 사용
      @JoinColumn(name="PRODUCT_ID")
      private Product product;
 
-     @ManyToOne
+     @ManyToOne(fetch=FetchType.LAZY)//나중에 JPQL에서의 패치 조인 사용
      @JoinColumn(name="ORDER_ID")
      private Orders orders;
 

@@ -6,10 +6,9 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 
-//@MappedSuperclass
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Getter @Setter
-@DiscriminatorColumn(name="role")
+//@DiscriminatorColumn(name="role")
 @Entity
 @AttributeOverride(name="id", column = @Column(name="USER_ID"))
 
@@ -25,5 +24,8 @@ public class User extends BaseTimeEntity{
 
     @Embedded
     private Address address;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 }

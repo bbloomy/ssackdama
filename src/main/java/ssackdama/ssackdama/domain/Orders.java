@@ -10,13 +10,13 @@ import java.util.List;
 
 public class Orders extends  BaseEntity{
 
-     @ManyToOne
+     @ManyToOne(fetch=FetchType.LAZY)
      //@JoinColumn(name="CUSTOMER_ID")
      @JoinColumn(name="user_id")
-     private Customer customer;
+     private User user;
 
      private Date orderDate;
 
-    //@OneToMany(mappedBy = "orders")
+    //@OneToMany(mappedBy = "orders",fetch=FetchType.LAZY )
     //private List<OrderDetail> orderItems=new ArrayList<>();
 }
