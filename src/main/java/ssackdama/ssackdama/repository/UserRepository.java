@@ -1,14 +1,30 @@
 package ssackdama.ssackdama.repository;
 
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import ssackdama.ssackdama.domain.Customer;
 import ssackdama.ssackdama.domain.User;
 
-@Repository
-public interface UserRepository {
+import java.util.Optional;
 
-    // 실제 db와 연결되는 영역 (dao 작성) 
-    //보통 실행 될 쿼리가 들어감
+//@Repository
+//public class UserRepository {
+//
+//    public static Optional<Customer> findByUserId(Email email) {
+//    }
+//
+//    @Repository
+//    public interface UserRepository extends JpaRepository<Customer, Long> {
+//        Optional<Customer> findByUserId(String userId);
+//    }
+//    // 실제 db와 연결되는 영역 (dao 작성)
+//    //보통 실행 될 쿼리가 들어감
+//}
+@Repository
+public interface UserRepository extends JpaRepository<Customer, Long> {
+    Optional<Customer> findByEmail(String mail);
+
 }
 /*
     마이바티스 사용하면 mapper인터페이스 제공
