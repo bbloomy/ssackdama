@@ -4,6 +4,7 @@ package ssackdama.ssackdama.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import ssackdama.ssackdama.domain.Customer;
+import ssackdama.ssackdama.domain.User;
 
 import java.util.Optional;
 
@@ -23,6 +24,7 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<Customer, Long> {
     Optional<Customer> findByEmail(String mail);
+
 }
 /*
     마이바티스 사용하면 mapper인터페이스 제공

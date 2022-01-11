@@ -12,7 +12,8 @@ public class Orders extends  BaseEntity{
      private Long id;
 
      @ManyToOne
-     @JoinColumn(name="CUSTOMER_ID")
+     //@JoinColumn(name="CUSTOMER_ID")
+     @JoinColumn(name="user_id")
      private Customer customer;
 
      private Date orderDate;

@@ -1,10 +1,18 @@
 package ssackdama.ssackdama.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Date;
 
-@MappedSuperclass
-public abstract class User extends BaseEntity{
+//@MappedSuperclass
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Getter @Setter
+@DiscriminatorColumn(name="role")
+@Entity
+
+public class User extends BaseEntity{
     @Id
     @Column(name="user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

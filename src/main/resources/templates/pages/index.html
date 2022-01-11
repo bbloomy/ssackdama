@@ -2,9 +2,11 @@
 <html   lagn="ko"
         xmlns:th="http://www.thymeleaf.org"
         xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorate="layouts/layout"
-><meta charset="UTF-8">
-
+        layout:decorate="~{layouts/layout}"
+>
+<head>
+    <link rel="stylesheet" href="css/index.css">
+</head>
 
 <th:block layout:fragment="content">
     <div class="container-fluid" style="width:80%">
