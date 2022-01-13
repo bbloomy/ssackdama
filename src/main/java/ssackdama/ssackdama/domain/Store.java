@@ -4,7 +4,7 @@ package ssackdama.ssackdama.domain;
 import javax.persistence.*;
 
 @Entity
-@AttributeOverride(name="id", column = @Column(name="STORE_ID"))
+//@AttributeOverride(name="id", column = @Column(name="STORE_ID"))
 
 public class Store extends BaseEntity{
 

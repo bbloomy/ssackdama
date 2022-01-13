@@ -3,7 +3,7 @@ package ssackdama.ssackdama.domain;
 import javax.persistence.*;
 
 @Entity
-@AttributeOverride(name="id", column = @Column(name="CATEGORY_ID"))
+//@AttributeOverride(name="id", column = @Column(name="CATEGORY_ID"))
 public class Category extends BaseEntity{
 
     private String name;

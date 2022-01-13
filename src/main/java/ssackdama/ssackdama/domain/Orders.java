@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@AttributeOverride(name="id", column = @Column(name="ORDER_ID"))
+//@AttributeOverride(name="id", column = @Column(name="ORDER_ID"))
 
 public class Orders extends  BaseEntity{
 
@@ -17,6 +17,6 @@ public class Orders extends  BaseEntity{
 
      private Date orderDate;
 
-    //@OneToMany(mappedBy = "orders",fetch=FetchType.LAZY )
-    //private List<OrderDetail> orderItems=new ArrayList<>();
+    @OneToMany(mappedBy = "order_ID",cascade=CascadeType.ALL ,orphanRemoval = true,fetch=FetchType.LAZY )
+    private List<OrderDetail> orderItems=new ArrayList<>();
 }

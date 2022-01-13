@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@AttributeOverride(name="id", column = @Column(name="PRODUCT_ID"))
+//@AttributeOverride(name="id", column = @Column(name="PRODUCT_ID"))
 
 public class Product extends BaseEntity {
 
