@@ -8,12 +8,15 @@ import ssackdama.ssackdama.repository.UserRepository;
 
 @Service
 public class MemberService implements MemberServiceImpl {
+
     @Autowired
     private final UserRepository userRepository;
 
     public MemberService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
+
 
     @Override
     public Long join(User user) {
@@ -27,10 +30,9 @@ public class MemberService implements MemberServiceImpl {
     }
 
     @Override
-    public void login(User user) {
+    public void login(String email, String password) {
 
     }
-
 
     @Override
     public void logout(User user) {
