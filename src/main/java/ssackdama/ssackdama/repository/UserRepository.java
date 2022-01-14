@@ -22,8 +22,8 @@ import java.util.Optional;
 //    //보통 실행 될 쿼리가 들어감
 //}
 @Repository
-public interface UserRepository extends JpaRepository<Customer, Long> {
-    Optional<Customer> findByEmail(String mail);
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByEmail(String mail);
 
 }
 /*

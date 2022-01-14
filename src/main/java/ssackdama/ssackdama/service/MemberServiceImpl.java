@@ -1,6 +1,9 @@
 package ssackdama.ssackdama.service;
 
+import org.springframework.ui.Model;
 import ssackdama.ssackdama.domain.User;
+
+import javax.servlet.http.HttpServletRequest;
 
 /*
  * 회원 가입

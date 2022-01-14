@@ -2,6 +2,7 @@ package ssackdama.ssackdama.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,6 +15,7 @@ import java.util.Date;
 
 public class User extends BaseTimeEntity{
     @Column(name="email",nullable = false)
+    @Embedded
     private Email email;
 
     @Column(name="password",nullable = false)

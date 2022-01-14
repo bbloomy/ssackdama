@@ -1,15 +1,18 @@
 package ssackdama.ssackdama.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import ssackdama.ssackdama.domain.User;
+import ssackdama.ssackdama.service.MemberService;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class MainController {
+    @Autowired
+    MemberService memberService;
 
     @GetMapping("/")
     public String test(Model model){
@@ -28,9 +31,8 @@ public class MainController {
         return "pages/signup";
     }
     @PostMapping("/signup")
-    public String create(User user){
-
-
+    public String create(@RequestBody User user){
+        memberService.join(user);
         return "redirect:/";
     }
     @GetMapping("/login")
@@ -40,7 +42,6 @@ public class MainController {
     }
     @PostMapping("/login")
     public String login(User user){
-
         return "redirect:/";
     }
 

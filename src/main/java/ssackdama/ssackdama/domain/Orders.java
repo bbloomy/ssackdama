@@ -17,6 +17,6 @@ public class Orders extends  BaseEntity{
 
      private Date orderDate;
 
-    @OneToMany(mappedBy = "order_ID",cascade=CascadeType.ALL ,orphanRemoval = true,fetch=FetchType.LAZY )
+    @OneToMany(mappedBy = "id",cascade=CascadeType.ALL ,orphanRemoval = true,fetch=FetchType.LAZY )
     private List<OrderDetail> orderItems=new ArrayList<>();
 }

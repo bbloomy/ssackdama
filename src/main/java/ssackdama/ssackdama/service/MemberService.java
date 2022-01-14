@@ -5,9 +5,9 @@ import org.springframework.stereotype.Service;
 import ssackdama.ssackdama.domain.User;
 import ssackdama.ssackdama.repository.UserRepository;
 
-import java.util.Optional;
+
 @Service
-public class MemberService {
+public class MemberService implements MemberServiceImpl {
     @Autowired
     private final UserRepository userRepository;
 
@@ -15,9 +15,26 @@ public class MemberService {
         this.userRepository = userRepository;
     }
 
-    public boolean login(User user1) {
+    @Override
+    public Long join(User user) {
+        userRepository.save(user);
+        return null;
+    }
 
-        return true;
+    @Override
+    public void resign(User user) {
 
     }
+
+    @Override
+    public void login(User user) {
+
+    }
+
+
+    @Override
+    public void logout(User user) {
+
+    }
+
 }
