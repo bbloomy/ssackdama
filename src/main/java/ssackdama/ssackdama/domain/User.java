@@ -1,5 +1,6 @@
 package ssackdama.ssackdama.domain;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,15 +9,14 @@ import javax.persistence.*;
 import java.util.Date;
 
 //@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@Getter @Setter
+@Data
 //@DiscriminatorColumn(name="role")
 @Entity
 @AttributeOverride(name="id", column = @Column(name="USER_ID"))
 
 public class User extends BaseTimeEntity{
     @Column(name="email",nullable = false)
-    @Embedded
-    private Email email;
+    private String email;
 
     @Column(name="password",nullable = false)
     private String password;

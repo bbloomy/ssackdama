@@ -46,9 +46,9 @@ public class MainController {
     }
     @PostMapping("/login")
 
-    public String login(HttpServletRequest request){
-        String id = request.getParameter("email");
-        String password = request.getParameter("password");
+    public String login(User user1){
+        String id = user1.getEmail();
+        String password = user1.getPassword();
         System.out.println(id+ password);
 
         return "redirect:/";
