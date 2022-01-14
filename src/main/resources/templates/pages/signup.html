@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
-
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"  />
+</head>
 <!--content-->
 <th:block layout:fragment="content">
     <div class="container" style="display:flex;justify-content: center;">
         <div  style="width: 516px;height: 546px;left: 462px;top: 190px; padding:100px;">
             <div style="display:flex;font-family: Inter; font-style:Semi Bold; font-size: 33px;justify-content: center;">
                 회원 가입</div>
-            <form method="post" action="/signup">
+            <form method="post" action="/signup" >
                 <div class="form-group">
                     <div class="form-group">
                         <label for="userName" style="color:#8A92A6;">이름</label>

@@ -15,8 +15,7 @@ import java.util.Date;
 
 public class User extends BaseTimeEntity{
     @Column(name="email",nullable = false)
-    @Embedded
-    private Email email;
+    private String email;
 
     @Column(name="password",nullable = false)
     private String password;

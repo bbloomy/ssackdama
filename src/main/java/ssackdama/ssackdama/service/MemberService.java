@@ -2,6 +2,7 @@ package ssackdama.ssackdama.service;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import ssackdama.ssackdama.domain.User;
 import ssackdama.ssackdama.repository.UserRepository;
 
