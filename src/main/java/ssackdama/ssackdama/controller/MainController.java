@@ -8,8 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ssackdama.ssackdama.domain.User;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class MainController {
+
+
 
     @GetMapping("/")
     public String test(Model model){
@@ -39,7 +43,10 @@ public class MainController {
         return "pages/login";
     }
     @PostMapping("/login")
-    public String login(User user){
+    public String login(HttpServletRequest request){
+        String id = request.getParameter("email");
+        String password = request.getParameter("password");
+        System.out.println(id+ password);
 
         return "redirect:/";
     }

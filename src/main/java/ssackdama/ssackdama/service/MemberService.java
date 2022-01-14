@@ -7,7 +7,7 @@ import ssackdama.ssackdama.repository.UserRepository;
 
 import java.util.Optional;
 @Service
-public class MemberService {
+public class MemberService implements MemberServiceImpl{
     @Autowired
     private final UserRepository userRepository;
 
@@ -15,9 +15,24 @@ public class MemberService {
         this.userRepository = userRepository;
     }
 
-    public boolean login(User user1) {
 
-        return true;
+    @Override
+    public Long join(User user) {
+        return null;
+    }
+
+    @Override
+    public void resign(User user) {
+
+    }
+
+    @Override
+    public void login(String email, String password) {
+
+    }
+
+    @Override
+    public void logout(User user) {
 
     }
 }
