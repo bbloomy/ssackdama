@@ -12,6 +12,7 @@ public class MainController {
     @Autowired
     UserServiceImpl userServiceImpl;
 
+
     @GetMapping("/")
     public String test(Model model){
         model.addAttribute("data","테스트 중");
@@ -32,6 +33,7 @@ public class MainController {
     @PostMapping("/signup")
     public String create(User user){
         userServiceImpl.join(user);
+
         return "redirect:/";
     }
 
@@ -48,6 +50,13 @@ public class MainController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/search")
+    public String search(Model model){
+        model.addAttribute("data","테스트 중");
+        return "pages/search";
+    }
+
 
 }
 
