@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html   lagn="ko"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layouts/layout}"
+>
+<head>
+    <link rel="stylesheet" href="css/search.css">
+</head>
+
+<th:block layout:fragment="content">
+    <div class="container-fluid" style="width:80%;display:flex;justify-content:center;">
+        <div class="card w-90" >
+        <div class="row justify-content-sm-center"style="flex-direction: row;align-items: center;">
+
+            <div class="col-sm-3">
+                <img src="img/banner-ad1.png" height="154px" width="154px" style="margin:10px;"/>
+            </div>
+            <div class="col-sm-5">
+            <div class="card-body">
+                <div style="margin:5px 0px 5px 0px;">
+                    <span class="badge rounded-pill bg-secondary">Secondary</span>
+                    <span class="badge rounded-pill bg-success">Success</span>
+                    <span class="badge rounded-pill bg-danger">Danger</span>
+                </div>
+
+                <div style="font-size:20px;">팟타이</div>
+                <div style="font-size:18px;font-weight:bold;color:red;">10000원</div>
+                <div class="mt-1 d-flex justify-content-between align-items-center">
+                    <div class="small-ratings">
+                        <i class="fa fa-star rating-color"></i>
+                        <i class="fa fa-star rating-color"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+
+                <p class="card-text">ow as a natural lead-in to additional content.</p>
+                <p style="font-size:6px;text-align:right;">마감시간 :2021.11.12 자정</p>
+
+            </div>
+            </div>
+            <div class="col-sm-3" style="text-align:right;padding-right:14px;">
+                <p style="font-size:14px;">사랑을 담아 가게</p>
+                <p style="font-size:12px;">10.k</p>
+                <p style="font-size:12px;">위치:신난동</p>
+                <p style="font-size:12px;">연락처 : 00-000-0000</p>
+            </div>
+
+        </div>
+        </div>
+    </div>
+</th:block>
+
+</html>
