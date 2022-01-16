@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
  * 회원 탈퇴
  * 로그인 / 로그아웃
  * */
-public interface MemberServiceImpl {
+public interface UserService {
 
     // 회원 가입
-    public Long join(User user);
+    public void join(User user);
 
     // 회원 탈퇴
     public void resign(User user);
