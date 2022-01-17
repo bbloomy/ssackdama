@@ -1,16 +1,145 @@
 <!DOCTYPE html>
-<html   lagn="ko"
-        xmlns:th="http://www.thymeleaf.org"
-        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-        layout:decorate="~{layouts/layout}"
->
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}"
+      xmlns="http://www.w3.org/1999/html">
+
+<th:block layout:fragment="header">
+    <link rel="stylesheet" href="css/product_detail.css">
+</th:block>
+
+<th:block layout:fragment="content">
+    <div class="container-fluid mt-5" style="width:80%">
+        <!--상단 product 정보-->
+        <div class="product-contianer d-flex flex-column justify-content-center">
+            <div class="row">
+                <div class="col-5">
+                    <img id="product-img" src="img/bugger.png"/>
+                </div>
+
+                <div class="col-7">
+                    <div class="row">
+                        <div class="col">담아가게 불고기 버거</div>
+                        <div class="col">
+                            <i class="fas fa-bookmark"></i>
+                            스크랩
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">3500원</div>
+                        <div class="col">event day : 2022.02.11</div>
+                    </div>
+                    <hr>
+                    <div class="row" id="product-tags-row">
+                        <div class="col-9" id="product-tags">
+                            <button type="button" class="btn btn-outline-primary">햄버거</button>
+                            <button type="button" class="btn btn-outline-secondary">패스트푸드</button>
+                            <button type="button" class="btn btn-outline-success">마감임박</button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-outline-warning">Update: 6시</button>
+                        </div>
+                    </div>
+                    <div class="row mt-3" id="product-info">
+                        <p class="fw-bold">
+                        ** 해당 글이 업로드 된 시간 기준 남은 재고량 입니다**
+                        </p>
+                        <p class="lh-1">
+                            담아가게에서 불고기버거를 3500에 판매합니다.</br>
+                            오늘 2021.12.12일 2시부터 3500원이며</br>
+                            현재 재고량은 100개 입니다</br>
+                            예상 마감 시간은 오후 7시입니다.</br>
+                            새로 출시된 버거로 맛보장! 가격 훌륭!</br>
+                            신선한 재료 사용을 보장하는 가게!! ☺☺</br>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-2" id="store-info">
+            <div class="col-5 p-4">
+                <div class="card p-1">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-3">
+                            </div>
+                            <div class="col-8">
+                                <div class="row">
+                                    <h2>담아가게</h2>
+                                </div>
+                                <div class="row">
+                                    <h6>평점 :
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </h6>
+                                    <h6>서울시 동작구 상도동 126-1111</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="#" class="btn btn-outline-secondary">관심 등록</a>
+                        <a href="#" class="btn btn-outline-secondary">문의 하기</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7 pt-4 pb-4">
+                <h5>서울시 동작구 상도동</h5>
+                <div style="height:80%;background:#AfB5BE;">지도</div>
+            </div>
+        </div>
+        <div class="row p-4" id="product-reviews">
+            <div class="container d-flex flex-column border p-4" id="product-review-container">
+                <div class="row">
+                    <h4>상품 리뷰</h4>
+                </div>
+                <div class="row row-cols-2 row-cols-lg-2 g-2 g-lg-3">
+                    <div class="col">
+                        <div class="p-3 border bg-light">상품 리뷰</div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 border bg-light">상품 리뷰</div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 border bg-light">상품 리뷰</div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 border bg-light">상품 리뷰</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row p-4 mb-5" id="related-product">
+            <div class="container d-flex flex-column p-4 border">
+
+                <div class="row">
+                    <h4>담아가게 관련 상품</h4>
+                </div>
+                <hr>
+                <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+                    <div class="col">
+                        <div class="p-3 border bg-light">상품 리뷰</div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 border bg-light">상품 리뷰</div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 border bg-light">상품 리뷰</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
 
-<th:block layout:fragment="content" style="width:80%">
-    <div style="border: 1px solid red">
-        ㄹ
-        abc
     </div>
+
 </th:block>
 
 </html>
