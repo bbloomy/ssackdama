@@ -1,9 +1,27 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <link rel="stylesheet" href="css/header.css">
+</head>
+<th:block th:fragment="headerFragment(header)">
 
-<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
-    <th:block th:fragment="headerFragment(param1)">
-        <div style="border: 1px solid green">
-           <h2 th:text="${param1}"></h2>
+    <div class="container-fluid" style="width: 80%">
+        <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3" style="align-items:flex-end">
+            <div class="col-12 col-sm-12 col-md-2">
+                <img id="logo" src="img/login-logo.svg" style="width:100px"/>
+            </div>
+            <div class="col-8 col-sm-8 col-md-8">
+                <input type="text" class="form-control" id="searchInput" placeholder="검색어를 입력하세요">
+            </div>
+            <div class="col-2 col-sm-2 col-md-2">
+                <a href="/login" id="headerIcon"><i class="far fa-lg fa-user"></i></a>
+                <a href="#" id="headerIcon2"><i class="fas fa-lg fa-shopping-cart"></i></a>
+                <a href="#" id="headerIcon3"><i class="far fa-lg fa-bell"></i></a>
+            </div>
+
         </div>
-    </th:block>
+    </div>
+
+
+</th:block>
 </html>

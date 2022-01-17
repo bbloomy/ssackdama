@@ -1,0 +1,113 @@
+/* default
+.container{
+    display:inline-box;
+}
+*/
+#inputName,#inputaddress,#inputPassword,#confirmPassword,#inputEmail{
+ border: 1px solid #FFC107;
+}
+
+.main_title{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    color: #152536;
+    padding:32px 12px 12px 14px;
+    display:flex;
+    align-items:center;
+}
+
+@media (min-width: 576px) {
+    #advertise{
+        display:flex;
+           background-color:  #FFDA6A;
+    }
+}
+
+.ad_btn_group{
+    position: absolute;
+    right: 30px;
+    top: 377px;
+}
+.ad_btn_left{
+    width: 38px;
+    height: 38px;
+    background: #FFFFFF;
+    border: 1px solid #DEE2E6;
+    border-radius: 4px 0px 0px 4px;
+    color:#DEE2E6;
+}
+.ad_btn_right{
+    width: 38px;
+    height: 38px;
+    background: #FFFFFF;
+    border: 1px solid #DEE2E6;
+    border-radius: 0px 4px 4px 0px;
+    color:#DEE2E6;
+}
+
+.card-list{
+     display:flex;
+     overflow-y: hidden;
+     overflow-x:scroll;
+
+}
+ ::-webkit-scrollbar{
+        height: 5px;
+        width: 5px;
+        background: gray;
+    }
+    ::-webkit-scrollbar-thumb:horizontal{
+        background: #000;
+        border-radius: 15px;
+    }
+.card{
+      min-width:248px;
+      padding:16px;
+      margin:5px;
+      border:1px solid #ABB5BE;
+      border-radius:5px;
+        flex-direction:column;
+}
+@media (min-width: 992px) {
+    .card{
+        min-width:540px;
+        padding:16px;
+        border:1px solid #ABB5BE;
+        border-radius:5px;
+        display:flex;
+      flex-direction:row;
+        align-items: center;
+    }
+}
+.card-body{
+    margin-left:12px;
+    height:210px;
+}
+.card-title{
+    font-family: Inter;
+    font-weight: bold;
+    font-size: 24px;
+   color:#152536;
+}
+.card-text{
+   font-family: Inter;
+    font-size:16px;
+}
+
+#map_area{
+    height:383px;
+    background-color:#FFDA6A;
+ }
+ @media (min-width: 576px) {
+     #map_area{
+         display:flex;
+         background-color:  #54595E;
+     }
+ }
+.area_picker{
+display:flex;
+align-items: baseline;
+margin:0px 14px 0px 10px;
+}
