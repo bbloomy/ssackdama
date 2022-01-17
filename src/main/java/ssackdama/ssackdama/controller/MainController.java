@@ -44,11 +44,14 @@ public class MainController {
     }
     @PostMapping("/login")
     public String login(User user1){
-        String id = user1.getEmail();
+        String email = user1.getEmail();
         String password = user1.getPassword();
-        System.out.println(id+ password);
-
-        return "redirect:/";
+        System.out.println("password"+password);
+        if(userServiceImpl.login(email, password)){
+            return "redirect:/";
+        }else{
+            return "pages/login";
+        }
     }
 
     @GetMapping("/search")
