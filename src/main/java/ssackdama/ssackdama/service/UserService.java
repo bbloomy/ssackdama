@@ -24,4 +24,6 @@ public interface UserService {
     // 로그아웃
     public void logout(User user);
 
+    // 중복 회원
+    public void validateDuplicateUser(User user);
 }

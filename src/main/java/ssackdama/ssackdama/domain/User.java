@@ -23,6 +23,8 @@ public class User extends BaseTimeEntity{
     @Column(name="userName",nullable = false)
     private String userName;
 
+    //@Embedded
+    //private Address address;
     private String address;
 
     @Enumerated(EnumType.STRING)
