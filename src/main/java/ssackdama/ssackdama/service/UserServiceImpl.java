@@ -1,5 +1,4 @@
 package ssackdama.ssackdama.service;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ssackdama.ssackdama.domain.User;
 import ssackdama.ssackdama.repository.UserRepository;
@@ -19,6 +18,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void join(User user) {
+        validateDuplicateUser(user);
         userRepository.save(user);
     }
 
@@ -45,6 +45,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public void logout(User user) {
 
+    }
+
+    @Override
+    public void validateDuplicateUser(User user) {
+        userRepository.findOneByEmail(user.getEmail())
+                .ifPresent(m->{
+                    throw new IllegalStateException("이미 존재하는 회원입니다.");
+                });
     }
 
 }
