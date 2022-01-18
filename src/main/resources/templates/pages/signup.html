@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
+<head>
+    <link rel="stylesheet" href="css/signup.css">
+</head>
 <!--content-->
 <th:block layout:fragment="content">
     <div class="container" style="display:flex;justify-content: center;">
         <div  style="width: 516px;height: 546px;left: 462px;top: 190px; padding:100px;">
-            <div style="display:flex;font-family: Inter; font-style:Semi Bold; font-size: 33px;justify-content: center;">
+            <div class="title">
                 회원 가입</div>
+
             <form method="post" action="/signup" name="registerForm">
                 <div class="form-group">
                     <div class="form-group">
                         <label for="userName" style="color:#8A92A6;">이름</label>
-                        <input type="text" class="form-control" id="userName" name="userName">
+                        <input type="text" class="form-control form-control-lg" id="userName" name="userName">
                     </div>
-                    <label for="email" style="color:#8A92A6;">이메일 주소</label>
-                    <input type="email" class="form-control" id="email" name="email"aria-describedby="emailHelp">
+                    <label for="email" class="form-label" style="color:#8A92A6;">이메일 주소</label>
+                    <input type="email" class="form-control form-control-lg" id="email" name="email"aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
                     <label for="password"style="color:#8A92A6;">비밀번호</label>
-                    <input type="password" class="form-control" id="password" name="password">
+                    <input type="password" class="form-control form-control-lg" id="password" name="password">
                 </div>
                 <div class="form-group">
                     <label for="apassword"style="color:#8A92A6;">비밀번호 확인</label>
-                    <input type="apassword" class="form-control" id="apassword" name="apassword">
+                    <input type="apassword" class="form-control form-control-lg" id="apassword" name="apassword">
                 </div>
 
                     <div class="form-check form-check-inline">
