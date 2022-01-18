@@ -12,6 +12,7 @@ public class MainController {
     @Autowired
     UserServiceImpl userServiceImpl;
 
+
     @GetMapping("/")
     public String test(Model model){
         model.addAttribute("data","테스트 중");
@@ -32,6 +33,7 @@ public class MainController {
     @PostMapping("/signup")
     public String create(User user){
         userServiceImpl.join(user);
+
         return "redirect:/";
     }
 
@@ -42,12 +44,22 @@ public class MainController {
     }
     @PostMapping("/login")
     public String login(User user1){
-        String id = user1.getEmail();
+        String email = user1.getEmail();
         String password = user1.getPassword();
-        System.out.println(id+ password);
-
-        return "redirect:/";
+        System.out.println("password"+password);
+        if(userServiceImpl.login(email, password)){
+            return "redirect:/";
+        }else{
+            return "pages/login";
+        }
     }
+
+    @GetMapping("/search")
+    public String search(Model model){
+        model.addAttribute("data","테스트 중");
+        return "pages/search";
+    }
+
 
 }
 

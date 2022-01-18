@@ -10,6 +10,7 @@ public class UserServiceImpl implements UserService {
     //@Autowired_ spring 4.3이상부터는 생성자가 하나인 경우 @Autowired를 사용하지 않아도 됨.
     private final UserRepository userRepository;
 
+
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -27,8 +28,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void login(String email, String password) {
-
+    public boolean login(String email, String password) {
+        User findUser = userRepository.findByEmail(email);
+        if(findUser ==null){
+            return false;
+        }else{
+            System.out.println("impl"+findUser.getPassword());
+            if(!findUser.getPassword().equals(password)){
+                System.out.println("return false");
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

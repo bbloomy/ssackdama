@@ -19,7 +19,7 @@ public interface UserService {
     public void resign(User user);
 
     // 로그인
-    public void login(String email, String password);
+    public boolean login(String email, String password);
 
     // 로그아웃
     public void logout(User user);
