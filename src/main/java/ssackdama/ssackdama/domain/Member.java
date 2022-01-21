@@ -12,17 +12,16 @@ import javax.persistence.*;
 
 //@DiscriminatorColumn(name="role")
 @Entity
-@AttributeOverride(name="id", column = @Column(name="USER_ID"))
-
-public class User extends BaseTimeEntity{
+@AttributeOverride(name="id", column = @Column(name="MEMBER_ID"))
+public class Member extends BaseTimeEntity {
     @Column(name="email",nullable = false)
     private String email;
 
     @Column(name="password",nullable = false)
     private String password;
 
-    @Column(name="userName",nullable = false)
-    private String userName;
+    @Column(name="username",nullable = false)
+    private String username;
 
     //@Embedded
     //private Address address;
@@ -32,10 +31,12 @@ public class User extends BaseTimeEntity{
     @Column(nullable = false)
     private Role role;
 
-    public User(String email, String password, String userName, Role role) {
+    private Boolean enabled;
+
+    public Member(String email, String password, String username, Role role) {
         this.email = email;
         this.password = password;
-        this.userName = userName;
+        this.username = username;
         this.role = role;
     }
 
@@ -44,10 +45,11 @@ public class User extends BaseTimeEntity{
         return "User{" +
                 "email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", userName='" + userName + '\'' +
+                ", username='" + username + '\'' +
                 ", address='" + address + '\'' +
                 ", role=" + role +
                 '}';
     }
+
 
 }

@@ -1,1 +1,0 @@
-package ssackdama.ssackdama.member;
