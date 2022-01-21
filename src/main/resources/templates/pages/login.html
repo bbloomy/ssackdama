@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout2}"
+      xmlns="http://www.w3.org/1999/html">
 
 <!--content-->
 <th:block layout:fragment="content">
@@ -12,6 +15,7 @@
                 <div  style="display:flex;font-family: Inter; font-size: 16px;color:#8A92A6;justify-content: center;">
                     서비스 사용을 위해 로그인하세요
                 </div>
+            <div>
                 <form method="post" action="/login" name="loginForm">
                     <div class="form-group">
                         <label for="email" style="color:#8A92A6;">Email address</label>
@@ -33,6 +37,7 @@
                         <button type="submit" class="btn btn-primary" style="height: 44px;width: 188px;background: #FEBD01;border:0px;border-radius: 4px;">Sign In</button>
                     </div>
                 </form>
+            </div>
             <div  style="display:flex;font-family: Inter; font-size: 16px;color:#8A92A6;justify-content: center;">
                 계정 만들러 가기
             </div>

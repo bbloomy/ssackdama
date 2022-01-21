@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout2}"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <script type="text/javascript">
+        function edit(s){
+            var editbtn=$("#edit")
+                $userName=$('#userName').attr('readonly',false);
+                address=$('#address').attr('readonly',false);
+                $userName=$('#password').attr('readonly',false);
+                $('#edit').html("수정완료");
+        }
+    </script>
+</head>
+<!--content-->
+<th:block layout:fragment="content">
+    <div class="container" style="margin-top:30px">
+        <button id="edit" onclick="edit();">수정하기</button>
+        <form >
+            <div class="col-auto" style="padding:10px">
+                <label for="userName">이름</label>
+                <input readonly type="text" id="userName" name="userName" th:value="*{userName}" />
+            </div>
+            <div class="col-auto" style="padding:10px">
+                <label for="address">주소</label>
+                <input readonly type="text" id="address" name="address" th:value="*{address}" />
+            </div>
+            <div class="col-auto" style="padding:10px">
+
+            <label for="password">비밀번호</label>
+            <input readonly type="text" id="password" name="password" th:value="*{password}" />
+            </div>
+        </form>
+    </div>
+</th:block>
+
+
+</html>

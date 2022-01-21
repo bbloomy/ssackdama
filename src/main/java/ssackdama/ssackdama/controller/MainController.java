@@ -53,12 +53,12 @@ public class MainController {
             return "pages/login";
         }
     }
-
-    @GetMapping("/search")
-    public String search(Model model){
-        model.addAttribute("data","테스트 중");
-        return "pages/search";
+    @GetMapping("/user")
+    public String setting(Model model){
+        return "pages/userInfo";
     }
+
+
 
 
 }
