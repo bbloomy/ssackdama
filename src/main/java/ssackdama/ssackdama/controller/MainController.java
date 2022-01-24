@@ -4,18 +4,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ssackdama.ssackdama.domain.Store;
 import ssackdama.ssackdama.domain.User;
+import ssackdama.ssackdama.service.StoreServiceImpl;
 import ssackdama.ssackdama.service.UserServiceImpl;
+
+import java.util.List;
 
 @Controller
 public class MainController {
     @Autowired
     UserServiceImpl userServiceImpl;
 
+    @Autowired
+    StoreServiceImpl storeServiceImpl;
 
     @GetMapping("/")
     public String test(Model model){
-        model.addAttribute("data","테스트 중");
+        List<Store> storeList = storeServiceImpl.getAllStores();
+
+        model.addAttribute("storeList",storeList);
         return "pages/index";
     }
 
