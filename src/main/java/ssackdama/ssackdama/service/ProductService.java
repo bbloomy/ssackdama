@@ -1,2 +1,6 @@
-package ssackdama.ssackdama.service;public interface ProductService {
+package ssackdama.ssackdama.service;
+
+public interface ProductService {
+
+
 }

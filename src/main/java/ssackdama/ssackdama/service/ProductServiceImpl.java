@@ -1,2 +1,4 @@
-package ssackdama.ssackdama.service;public class ProductServiceImpl {
+package ssackdama.ssackdama.service;
+
+public class ProductServiceImpl implements  ProductService{
 }
