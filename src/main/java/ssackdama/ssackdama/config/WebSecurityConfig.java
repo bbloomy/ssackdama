@@ -7,19 +7,22 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import javax.sql.DataSource;
-
+import ssackdama.ssackdama.service.MemberServiceImpl;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
-    DataSource dataSource;
+    private MemberServiceImpl memberServiceImpl;
+
+
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
 
     @Override
     protected void configure(HttpSecurity http)throws Exception{
@@ -27,28 +30,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         .authorizeRequests()
         .antMatchers("/","/css/**","/img/**","/signup").permitAll()
         .anyRequest().authenticated()//인증
-        .and()
+        ;
+        http
         .formLogin()
         .loginPage("/login")
         .permitAll()
-        .and()
+        .usernameParameter("email");
+        http
         .logout()
         .logoutSuccessUrl("/")
         .permitAll();
 
         }
-    @Autowired//로그인
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
-
-        //auth.userDetailsService().passwordEncoder(passwordEncoder());
+    @Override//로그인
+    public void configure(AuthenticationManagerBuilder auth) throws Exception{
+        auth.userDetailsService(memberServiceImpl).passwordEncoder(passwordEncoder());
     }
 
-
-
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
 
 }
 

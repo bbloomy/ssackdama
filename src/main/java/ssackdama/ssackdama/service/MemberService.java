@@ -10,17 +10,14 @@ import ssackdama.ssackdama.domain.Member;
  * 회원 탈퇴
  * 로그인 / 로그아웃
  * */
-public interface MemberService extends UserDetailsService{
+public interface MemberService{
 
     // 회원 가입
     public boolean join(Member member);
 
 
-    @Override
-    UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 
-    // 로그인
-    public boolean login(String email, String password);
+
 
     // 로그아웃
     public void logout(Member member);

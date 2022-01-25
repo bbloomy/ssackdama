@@ -44,17 +44,7 @@ public class MainController {
         model.addAttribute("data","테스트 중");
         return "pages/login";
     }
-    @PostMapping("/login")
-    public String login(Member member1){
-        String email = member1.getEmail();
-        String password = member1.getPassword();
-        System.out.println("password"+password);
-        if(memberServiceImpl.login(email, password)){
-            return "redirect:/";
-        }else{
-            return "pages/login";
-        }
-    }
+
     @GetMapping("/user")
     public String setting(Model model){
         return "pages/userInfo";
