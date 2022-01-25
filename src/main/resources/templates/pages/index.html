@@ -142,6 +142,20 @@
                 <div style="height:231px;background:#ABB5BE;"></div>
             </div>
         </div>
+
+        <div class="testStore" area-label="가게 테스트">
+            <table>
+                <tr th:each="store,index : ${storeList}">
+                    <td>
+                        <span th:text ="${index.index}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${store.storeName}"></span>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
     </div>
     </th:block>
 
