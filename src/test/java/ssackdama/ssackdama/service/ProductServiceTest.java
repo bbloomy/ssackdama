@@ -9,9 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import ssackdama.ssackdama.domain.Product;
 import ssackdama.ssackdama.domain.Role;
-import ssackdama.ssackdama.domain.User;
+
 import ssackdama.ssackdama.repository.ProductRepository;
-import ssackdama.ssackdama.repository.UserRepository;
 
 import javax.transaction.Transactional;
 

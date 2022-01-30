@@ -45,9 +45,9 @@ public class MainController {
         System.out.println("user의 join: "+ member.getEmail());
 
         if(memberServiceImpl.join(member)){
-            model.addAttribute("error","에러러");
-            return "redirect:pages/login";
+            return "redirect:/pages/login";
         }else{
+            model.addAttribute("error","error");
             return "pages/signup";
         }
 
