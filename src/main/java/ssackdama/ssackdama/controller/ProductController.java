@@ -21,10 +21,12 @@ public class ProductController {
 
     @GetMapping("/product/add")
     public String ProductAdd(Model model){
+
         return "pages/product_add";
     }
     @PostMapping("/product/add")
     public String ProductAdd(Model model, Store store){
+        System.out.println("Store: "+ store);
         if(productServiceImpl.addProduct(store)){
             System.out.println("Product Add Success");
         }else{
