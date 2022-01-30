@@ -16,7 +16,11 @@ import java.util.List;
 public class SecurityMember extends User{
     public SecurityMember(Member member){
         super(member.getEmail(),member.getPassword(),makeGrantedAuthority(member.getRole()));
-
+        /*
+        * public User(String username, String password, Collection<? extends GrantedAuthority> authorities) {
+		    this(username, password, true, true, true, true, authorities);
+		* }
+        */
     }
 
 
