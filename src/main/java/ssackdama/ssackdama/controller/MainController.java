@@ -5,16 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ssackdama.ssackdama.domain.Store;
-import ssackdama.ssackdama.domain.User;
 import ssackdama.ssackdama.service.StoreServiceImpl;
-import ssackdama.ssackdama.service.UserServiceImpl;
+import ssackdama.ssackdama.domain.Member;
+import ssackdama.ssackdama.service.MemberServiceImpl;
 
 import java.util.List;
 
 @Controller
 public class MainController {
     @Autowired
-    UserServiceImpl userServiceImpl;
+    MemberServiceImpl memberServiceImpl;
 
     @Autowired
     StoreServiceImpl storeServiceImpl;
@@ -32,6 +32,8 @@ public class MainController {
         model.addAttribute("data","테스트 중");
         return "pages/index";
     }
+
+
     @GetMapping("/signup")
     public String signup(Model model){
         model.addAttribute("data","테스트 중");
@@ -39,10 +41,16 @@ public class MainController {
     }
 
     @PostMapping("/signup")
-    public String create(User user){
-        userServiceImpl.join(user);
+    public String create(Member member, Model model){
+        System.out.println("user의 join: "+ member.getEmail());
 
-        return "redirect:/";
+        if(memberServiceImpl.join(member)){
+            model.addAttribute("error","에러러");
+            return "redirect:pages/login";
+        }else{
+            return "pages/signup";
+        }
+
     }
 
     @GetMapping("/login")
@@ -50,23 +58,13 @@ public class MainController {
         model.addAttribute("data","테스트 중");
         return "pages/login";
     }
-    @PostMapping("/login")
-    public String login(User user1){
-        String email = user1.getEmail();
-        String password = user1.getPassword();
-        System.out.println("password"+password);
-        if(userServiceImpl.login(email, password)){
-            return "redirect:/";
-        }else{
-            return "pages/login";
-        }
+
+    @GetMapping("/user")
+    public String setting(Model model){
+        return "pages/userInfo";
     }
 
-    @GetMapping("/search")
-    public String search(Model model){
-        model.addAttribute("data","테스트 중");
-        return "pages/search";
-    }
+
 
 
 }

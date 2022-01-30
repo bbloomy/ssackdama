@@ -1,6 +1,5 @@
 package ssackdama.ssackdama.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -37,4 +36,9 @@ public class ProductController {
 
 
 
+    @GetMapping("/search")
+    public String search(Model model){
+        model.addAttribute("data","테스트 중");
+        return "pages/search";
+    }
 }
