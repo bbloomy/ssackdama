@@ -13,6 +13,7 @@ import ssackdama.ssackdama.service.MemberServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -37,7 +38,7 @@ public class MainController {
         return "pages/index";
     }
 
-
+    /*회원가입*/
     @GetMapping("/signup")
     public String signup(Model model){
         model.addAttribute("data","테스트 중");
@@ -49,23 +50,18 @@ public class MainController {
         System.out.println("user의 join: "+ member.getEmail());
 
         if(memberServiceImpl.join(member)){
-            return "pages/login";//"redirect:/pages/login";
+            return "redirect:/login";
         }else{
             model.addAttribute("error","error");
             return "pages/signup";
         }
 
     }
-
+    /*로그인_로그아웃*/
     @GetMapping("/login")
     public String loginpage(Model model){
         model.addAttribute("data","테스트 중");
         return "pages/login";
-    }
-
-    @GetMapping("/user")
-    public String setting(Model model){
-        return "pages/userInfo";
     }
 
     @GetMapping("/logout")
@@ -74,6 +70,27 @@ public class MainController {
         return "redirect:/login";
     }
 
+    /*회원로그 내역*/
+    @GetMapping("/info")
+    public String setting(Model model){
+        return "pages/info";
+    }
+    /*회원 정보*/
+    @GetMapping("/userInfo")
+    public String userInfo(Model model){
+        return "pages/userInfo";
+    }
+
+    /*회원 탈퇴*/
+    @GetMapping("/withdrawal")
+    public String resignPage(){
+        return "pages/withdrawal";
+    }
+    @PostMapping("/withdrawal")
+    public String withdrawal(Member member, HttpSession session)throws Exception{
+
+        return "redirect:/";
+    }
 
 }
 

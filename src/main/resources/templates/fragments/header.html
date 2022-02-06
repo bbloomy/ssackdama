@@ -25,10 +25,10 @@
                     <a th:href="@{/logout}" id="logout_icon"><i class="fas fa-lg fa-sign-out-alt"></i></a>
 
                     <div style="display:inline;" sec:authorize="hasAuthority('SELLER')">
-                        <a th:href="@{/store}" id="seller_icon"><i class="fas fa-lg fa-store"></i></a>
+                        <a th:href="@{/info}" id="seller_icon"><i class="fas fa-lg fa-store"></i></a>
                     </div>
                     <div style="display:inline;" sec:authorize="hasAuthority('CUSTOMER')">
-                       <a th:href="@{/user}" id="customer_icon"><i class="far fa-lg fa-user"></i></a>
+                       <a th:href="@{/info}" id="customer_icon"><i class="far fa-lg fa-user"></i></a>
                     </div>
                 </div>
 

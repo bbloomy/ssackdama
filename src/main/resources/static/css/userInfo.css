@@ -1,0 +1,50 @@
+a{
+    text-decoration:none;
+    color:inherit;
+}
+a:hover {
+    color:#FF5050;
+}
+.heart-icon{
+    display:flex;
+   justify-content: center;
+   color:#FFDA6A;
+}
+body {
+    background: #FFDA6A
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #FF5050;
+}
+
+.profile-button {
+    box-shadow: none;
+    background:#FF5050;
+    color:#fff;
+    border: solid 1px #FF5050
+}
+
+.profile-button:hover {
+    color:#FF5050;
+    background: #fff;
+    border: solid 1px #FF5050
+}
+
+.profile-button:active {
+    background: #FF5050;
+    color:#fff;
+    box-shadow: none;
+    border:none;
+}
+
+.back:hover {
+    color: #FFDA6A;
+    cursor: pointer;
+}
+
+.labels {
+    font-size: 11px
+}
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout2}"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="stylesheet" th:href="@{css/userInfo.css}">
+</head>
+<!--content-->
+<th:block layout:fragment="content">
+
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right"></div>
+            <div class="col-md-6 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">회원 탈퇴 하시겠습니까?</h4>
+                    </div>
+                    <span class="text-right">정보 다 삭제 된다.. 잘생각해봐...</span>
+                    <a th:href="@{/userInfo}" class="link-warning">돌아가기</a>
+
+                    <form th:action="@{/withdrawal}" method="post">
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">비밀번호</label>
+                            <input type="text" class="form-control" value="">
+                        </div>
+                    </div>
+                    <div class="mt-5 text-center">
+                        <button type="submit" class="btn btn-sm btn-outline-danger">그래도 탈퇴할래요..</button>
+                   </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+
+</th:block>
+
+
+</html>

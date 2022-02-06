@@ -20,7 +20,6 @@ public class PrincipalDetails implements UserDetails {
         collect.add(new GrantedAuthority() {
             @Override
             public String getAuthority() {
-                //System.out.println(member.getRole().toString());
                 return member.getRole().toString();
             }
         });
@@ -34,7 +33,7 @@ public class PrincipalDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return member.getUsername();
+        return member.getEmail();
     }
 
     @Override

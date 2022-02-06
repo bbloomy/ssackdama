@@ -6,6 +6,7 @@
       layout:decorate="~{layouts/layout2}"
       xmlns="http://www.w3.org/1999/html">
 <head>
+    <link rel="stylesheet" th:href="@{css/userInfo.css}">
     <script type="text/javascript">
         function edit(s){
             var editbtn=$("#edit")
@@ -18,26 +19,63 @@
 </head>
 <!--content-->
 <th:block layout:fragment="content">
-    <div class="container" style="margin-top:30px">
-        <button id="edit" onclick="edit();">수정하기</button>
-        <form >
-            <div class="col-auto" style="padding:10px">
-                <label for="userName">이름</label>
-                <input readonly type="text" id="userName" name="userName" th:value="${#authentication.name}" />
-            </div>
-            <span sec:authentication="principal.authorities"></span>
 
-            <div class="col-auto" style="padding:10px">
-                <label for="address">주소</label>
-                <input readonly type="text" id="address" name="address" th:value="*{address}" />
+    <div class="container rounded bg-white mt-5 mb-5 p-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <!--breadcrumb-->
+                <div class="d-flex">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a th:href="@{/}">홈</a></li>
+                            <li class="breadcrumb-item"><a th:href="@{/info}">정보</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">회원정보</li>
+                        </ol>
+                    </nav>
+                </div>
+                <!--user프로필-->
+                <div class="d-flex flex-column align-items-center text-center p-3 py-3">
+                    <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                    <span class="font-weight-bold"  sec:authentication="name"></span>
+                    <span class="text-black-50"><a th:href="@{/withdrawal}">탈퇴</a></span>
+                </div>
             </div>
-            <div class="col-auto" style="padding:10px">
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">회원 정보 수정</h4>
+                    </div>
 
-            <label for="password">비밀번호</label>
-            <input readonly type="text" id="password" name="password" th:value="*{password}" />
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">전화번호</label><input type="text" class="form-control" value=""></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">주소</label><input type="text" class="form-control"value=""></div>
+                        <div class="col-md-12"><label class="labels">우편번호</label><input type="text" class="form-control"value=""></div>
+                        <div class="col-md-6"><label class="labels">시/군/구</label><input type="text" class="form-control" value=""></div>
+                        <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value=""></div>
+                    </div>
+                    <div class="mt-5 text-center"><button class="btn profile-button" type="button">수정완료</button></div>
+                </div>
             </div>
-        </form>
+            <div class="col-md-4">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center experience"><span>비밀번호 변경</span></div><br>
+                    <div class="row">
+                        <div class="col-md-12"><label class="labels">비밀번호</label>
+                            <input type="text" class="form-control" value=""></div>
+                        <div class="col-md-12"><label class="labels">비밀번호 확인</label>
+                            <input type="text" class="form-control" value="" ></div>
+                    </div>
+
+                    <div class="mt-5 text-center"><button class="btn profile-button" type="button">변경하기</button></div>
+                </div>
+            </div>
+        </div>
     </div>
+    </div>
+    </div>
+
 </th:block>
 
 
