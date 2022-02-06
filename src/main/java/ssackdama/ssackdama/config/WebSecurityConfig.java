@@ -32,8 +32,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         http
         .authorizeRequests()
         .antMatchers("/","/css/**","/img/**","/signup").permitAll()
-        .anyRequest().authenticated()//인증
+                .anyRequest().authenticated()//인증
         ;
+        //                .antMatchers("/search/**").access("hasRole('SELLER')")
         http
         .formLogin()
         .loginPage("/login")
@@ -43,6 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         .logout()
                 .logoutUrl("/logout")
         .logoutSuccessUrl("/")
+                .invalidateHttpSession(true)
         .permitAll();
 
         }

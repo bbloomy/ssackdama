@@ -9,7 +9,6 @@ import javax.persistence.*;
 
 //@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Getter@Setter@NoArgsConstructor
-
 //@DiscriminatorColumn(name="role")
 @Entity
 @AttributeOverride(name="id", column = @Column(name="MEMBER_ID"))

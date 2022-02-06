@@ -8,15 +8,13 @@
     <link rel="stylesheet" th:href="@{css/sign.css}">
     <script type="text/javascript">
         function checkPassword(){
-            console.log("HHHHHHHHHHHHHHHHHHH");
             const pw1=document.getElementById("password").value;
             const pw2=document.getElementById("apassword").value;
             console.log(pw1,pw2);
-            if(pw1!==pw2){
+            if(pw1===pw2){
                 const submitbtn=document.getElementById('signInBtn');
                 submitbtn.disabled = false;
             }
-
         }
     </script>
 </head>
@@ -64,7 +62,7 @@
                     </div>
                 </div>
                 <div style="display:flex;justify-content:center;">
-                    <button id="signInBtn"type="submit" disabled="disabled" class="btn btn-primary submit">Sign In</button>
+                    <button id="signInBtn"type="submit" disabled="disabled" class="btn btn-primary submit">회원 가입</button>
                 </div>
             </form>
 

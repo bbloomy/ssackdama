@@ -19,9 +19,6 @@ public interface MemberService{
 
 
 
-    // 로그아웃
-    public void logout(Member member);
-
     // 중복 회원
     public void validateDuplicateUser(Member member);
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lagn="ko"
       xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/layout2}"
       xmlns="http://www.w3.org/1999/html">
@@ -22,8 +23,10 @@
         <form >
             <div class="col-auto" style="padding:10px">
                 <label for="userName">이름</label>
-                <input readonly type="text" id="userName" name="userName" th:value="*{userName}" />
+                <input readonly type="text" id="userName" name="userName" th:value="${#authentication.name}" />
             </div>
+            <span sec:authentication="principal.authorities"></span>
+
             <div class="col-auto" style="padding:10px">
                 <label for="address">주소</label>
                 <input readonly type="text" id="address" name="address" th:value="*{address}" />
