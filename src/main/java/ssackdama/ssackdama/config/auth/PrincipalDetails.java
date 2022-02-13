@@ -7,7 +7,6 @@ import ssackdama.ssackdama.domain.Member;
 import java.util.ArrayList;
 import java.util.Collection;
 
-//시큐리티 세션=>Authentication =>UserDetails
 public class PrincipalDetails implements UserDetails {
     private Member member;
     public PrincipalDetails(Member member){

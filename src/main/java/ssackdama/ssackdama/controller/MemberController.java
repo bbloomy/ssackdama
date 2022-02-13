@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-public class MainController {
+public class MemberController {
     @Autowired
     MemberServiceImpl memberServiceImpl;
 
@@ -60,7 +60,6 @@ public class MainController {
     /*로그인_로그아웃*/
     @GetMapping("/login")
     public String loginpage(Model model){
-        model.addAttribute("data","테스트 중");
         return "pages/login";
     }
 
@@ -78,6 +77,8 @@ public class MainController {
     /*회원 정보*/
     @GetMapping("/userInfo")
     public String userInfo(Model model){
+        model.addAttribute("telephone","010-0000-0000");
+
         return "pages/userInfo";
     }
 
@@ -86,9 +87,10 @@ public class MainController {
     public String resignPage(){
         return "pages/withdrawal";
     }
+
     @PostMapping("/withdrawal")
     public String withdrawal(Member member, HttpSession session)throws Exception{
-
+        memberServiceImpl.withdraw(member.getPassword());
         return "redirect:/";
     }
 

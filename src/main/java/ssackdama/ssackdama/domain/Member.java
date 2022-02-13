@@ -3,6 +3,8 @@ package ssackdama.ssackdama.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 import javax.persistence.*;
@@ -22,6 +24,8 @@ public class Member extends BaseTimeEntity {
     @Column(name="username",nullable = false)
     private String username;
 
+    @Column(name="phonenumber")
+    private String phonenumber;
     //@Embedded
     //private Address address;
     private String address;

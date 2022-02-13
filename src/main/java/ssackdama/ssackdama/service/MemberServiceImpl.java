@@ -1,6 +1,7 @@
 package ssackdama.ssackdama.service;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,12 +23,10 @@ public class MemberServiceImpl implements MemberService , UserDetailsService {
     @Override
     //.usernameParameter()랑 파라미터 프론트랑 맞춰야 함.
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        System.out.println("으악으악"+email);
         //받은 유저 패스워드와 비교하여 로그인 인증
         Member member=memberRepository.findByEmail(email);
 
         if(member==null){
-            System.out.println("으악으악으악");
             throw new UsernameNotFoundException(email);
         }
         return new PrincipalDetails(member);//시큐리티 세션(내부 Authentication(내부 UserDetails))
@@ -43,7 +42,7 @@ public class MemberServiceImpl implements MemberService , UserDetailsService {
             member.setPassword(passwordEncoder.encode(member.getPassword()));
             // 로그인 했음^^
             member.setEnabled(true);
-            System.out.println("user의 join"+ member.getEmail());
+
             memberRepository.save(member);
         }catch (IllegalStateException e){
             isSuccess=false;
@@ -54,7 +53,17 @@ public class MemberServiceImpl implements MemberService , UserDetailsService {
 
 
     @Override
-    public void resign(Member member) {
+    public void withdraw(String checkPassword) throws Exception{
+        UserDetails loginedMember = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        Member omember=memberRepository.findOneByEmail(loginedMember.getUsername()).orElseThrow(()-> new Exception("회원이 존재하지 않습니다"));
+        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
+        if(passwordEncoder.matches(checkPassword, omember.getPassword())){
+            memberRepository.deleteById(omember.getId());
+            SecurityContextHolder.clearContext();
+        }else{
+            throw new Exception("비밀번호가 일치하지 않습니다.");
+        }
 
     }
 
