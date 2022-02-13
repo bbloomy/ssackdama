@@ -32,6 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         .authorizeRequests()
         .antMatchers("/","/css/**","/img/**","/signup").permitAll()
                 .anyRequest().authenticated()//인증
+
         ;
         //                .antMatchers("/search/**").access("hasRole('SELLER')")
         http
