@@ -6,4 +6,6 @@ import ssackdama.ssackdama.domain.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
+
+
 }

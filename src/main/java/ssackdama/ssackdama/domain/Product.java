@@ -14,7 +14,7 @@ import java.util.Date;
 
 public class Product extends BaseEntity {
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="store_id")
     private Store store;
 

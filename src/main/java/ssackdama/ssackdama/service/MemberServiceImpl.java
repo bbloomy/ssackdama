@@ -42,7 +42,6 @@ public class MemberServiceImpl implements MemberService , UserDetailsService {
                 .password(member.getPassword())
                 .roles(member.getRole().toString())
                 .build();
-
     }
     @Override
     public boolean join(Member member) {

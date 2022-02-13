@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import ssackdama.ssackdama.domain.Product;
 import ssackdama.ssackdama.domain.Role;
 
+import ssackdama.ssackdama.domain.Store;
 import ssackdama.ssackdama.repository.ProductRepository;
 
 import javax.transaction.Transactional;
@@ -27,6 +28,12 @@ public class ProductServiceTest {
     @Test
     public void createProduct() throws Exception{
         //given
+        Store store = new Store();
+        store.setStoreName("hello");
+        Product product = new Product();
+        product.setStore(store);
+        product.setProductName("hello");
+        productRepository.save(product);
 
     }
 
