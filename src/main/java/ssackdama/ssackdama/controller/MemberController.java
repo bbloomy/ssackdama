@@ -41,7 +41,6 @@ public class MemberController {
     /*회원가입*/
     @GetMapping("/signup")
     public String signup(Model model){
-        model.addAttribute("data","테스트 중");
         return "pages/signup";
     }
 
@@ -52,8 +51,7 @@ public class MemberController {
         if(memberServiceImpl.join(member)){
             return "redirect:/login";
         }else{
-            model.addAttribute("error","error");
-            return "pages/signup";
+            return "redirect:/signup?error";
         }
 
     }
@@ -92,6 +90,12 @@ public class MemberController {
     public String withdrawal(Member member, HttpSession session)throws Exception{
         memberServiceImpl.withdraw(member.getPassword());
         return "redirect:/";
+    }
+    /*비밀번호 재설정*/
+    @GetMapping("/password-reset")
+    public String resetPassword(){
+        return "pages/password-reset";
+
     }
 
 }

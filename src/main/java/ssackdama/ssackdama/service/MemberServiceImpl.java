@@ -15,7 +15,6 @@ import ssackdama.ssackdama.repository.MemberRepository;
 @Service
 public class MemberServiceImpl implements MemberService , UserDetailsService {
 
-    //@Autowired_ spring 4.3이상부터는 생성자가 하나인 경우 @Autowired를 사용하지 않아도 됨.
     @Autowired
     private MemberRepository memberRepository;
 

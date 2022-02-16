@@ -21,11 +21,11 @@ public class Member extends BaseTimeEntity {
     @Column(name="password",nullable = false)
     private String password;
 
-    @Column(name="username",nullable = false)
+    @Column(name="username")
     private String username;
 
-    @Column(name="phonenumber")
-    private String phonenumber;
+    @Column
+    private String phonenumber="";
     //@Embedded
     //private Address address;
     private String address;
@@ -43,6 +43,7 @@ public class Member extends BaseTimeEntity {
         this.role = role;
     }
 
+
     @Override
     public String toString() {
         return "User{" +
@@ -53,6 +54,5 @@ public class Member extends BaseTimeEntity {
                 ", role=" + role +
                 '}';
     }
-
 
 }
