@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <link rel="stylesheet" href="css/header.css">
 </head>
@@ -12,14 +13,27 @@
                     <img id="logo" src="img/login-logo.svg" style="width:100px"/>
                 </a>
             </div>
-            <div class="col-8 col-sm-8 col-md-8">
+            <div class="col-8 col-sm-8 col-md-7">
                 <input type="text" class="form-control" id="searchInput" placeholder="검색어를 입력하세요">
             </div>
-            <div class="col-4 col-sm-4 col-md-2">
-                <a th:href="@{/login}" id="headerIcon"><i class="far fa-lg fa-user"></i></a>
+            <div class="col-4 col-sm-4 col-md-3">
+                <!--isAnonymous()true =>로그인 안되어 있으므로 로그인 icon표시-->
+                <div style="display:inline;" sec:authorize="isAnonymous()">
+                    <a th:href="@{/login}" id="login_icon"><i class="fas fa-lg fa-sign-in-alt"></i></a>
+                </div>
+                <div style="display:inline;" sec:authorize="isAuthenticated()">
+                    <a th:href="@{/logout}" id="logout_icon"><i class="fas fa-lg fa-sign-out-alt"></i></a>
 
-                <a href="#" id="headerIcon2"><i class="fas fa-lg fa-shopping-cart"></i></a>
-                <a href="#" id="headerIcon3"><i class="far fa-lg fa-bell"></i></a>
+                    <div style="display:inline;" sec:authorize="hasAuthority('SELLER')">
+                        <a th:href="@{/info}" id="seller_icon"><i class="fas fa-lg fa-store"></i></a>
+                    </div>
+                    <div style="display:inline;" sec:authorize="hasAuthority('CUSTOMER')">
+                       <a th:href="@{/info}" id="customer_icon"><i class="far fa-lg fa-user"></i></a>
+                    </div>
+                </div>
+
+                <a href="#" id="cart_icon"><i class="fas fa-lg fa-shopping-cart"></i></a>
+                <a href="#" id="bell_icon"><i class="far fa-lg fa-bell"></i></a>
             </div>
 
         </div>

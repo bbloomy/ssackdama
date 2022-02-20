@@ -1,8 +1,5 @@
 package ssackdama.ssackdama.service;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import ssackdama.ssackdama.domain.Member;
 
 /*
@@ -17,16 +14,11 @@ public interface MemberService{
 
 
 
-
-
-    // 로그아웃
-    public void logout(Member member);
-
     // 중복 회원
     public void validateDuplicateUser(Member member);
 
 
     // 회원 탈퇴
-    public void resign(Member member);
+    public void withdraw(String member_id) throws Exception;
 
 }

@@ -3,7 +3,6 @@ package ssackdama.ssackdama.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -31,9 +30,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http)throws Exception{
         http
         .authorizeRequests()
-        .antMatchers("/","/css/**","/img/**","/signup","/product/**","/**").permitAll()
-        .anyRequest().authenticated()//인증
+        .antMatchers("/","/css/**","/img/**","/signup","/password-reset").permitAll()
+                .anyRequest().authenticated()//인증
+
         ;
+        //                .antMatchers("/search/**").access("hasRole('SELLER')")
         http
         .formLogin()
         .loginPage("/login")
@@ -43,6 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         .logout()
                 .logoutUrl("/logout")
         .logoutSuccessUrl("/")
+                .invalidateHttpSession(true)
         .permitAll();
 
         }
