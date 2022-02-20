@@ -30,11 +30,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http)throws Exception{
         http
         .authorizeRequests()
-        .antMatchers("/","/css/**","/img/**","/signup","/password-reset").permitAll()
+        .antMatchers("/","/css/**","/img/**","/signup","/password_reset").permitAll()
+                .antMatchers("/manage/**").access("hasRole('ROLE_SELLER')")
                 .anyRequest().authenticated()//인증
-
         ;
-        //                .antMatchers("/search/**").access("hasRole('SELLER')")
+//
         http
         .formLogin()
         .loginPage("/login")

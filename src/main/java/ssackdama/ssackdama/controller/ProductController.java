@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ssackdama.ssackdama.domain.Product;
-import ssackdama.ssackdama.domain.Store;
 import ssackdama.ssackdama.service.ProductServiceImpl;
 
 @Controller

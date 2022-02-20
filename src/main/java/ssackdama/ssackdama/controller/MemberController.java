@@ -1,6 +1,7 @@
 package ssackdama.ssackdama.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,23 +18,12 @@ import ssackdama.ssackdama.service.MemberServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 public class MemberController {
     @Autowired
     MemberServiceImpl memberServiceImpl;
 
-    @Autowired
-    StoreServiceImpl storeServiceImpl;
-
-    @GetMapping("/")
-    public String test(Model model){
-        List<Store> storeList = storeServiceImpl.getAllStores();
-
-        model.addAttribute("storeList",storeList);
-        return "pages/index";
-    }
 
     @GetMapping("/main")
     public String main(Model model){
@@ -48,9 +38,7 @@ public class MemberController {
     }
 
     @PostMapping("/signup")
-    public String create(Member member, Model model){
-        System.out.println("user의 join: "+ member.getEmail());
-
+    public String create(Member member){
         if(memberServiceImpl.join(member)){
             return "redirect:/login";
         }else{
@@ -60,7 +48,7 @@ public class MemberController {
     }
     /*로그인_로그아웃*/
     @GetMapping("/login")
-    public String loginpage(Model model){
+    public String loginpage(){
         return "pages/login";
     }
 
@@ -70,17 +58,29 @@ public class MemberController {
         return "redirect:/login";
     }
 
-    /*회원로그 내역*/
+    /*구매자 회원 - 찜한 가게 / 찜한 상품
+    * 판매자 회원 - 운영중인 store */
+    @PreAuthorize("hasRole('ROLE_CUSTOMER')")
     @GetMapping("/info")
     public String setting(){
         return "pages/info";
-    }//sec:authentication="name"
+    }
+
+
+    @PreAuthorize("hasRole('ROLE_SELLER')")
+    @GetMapping("/info-seller")
+    public String customer_info(){
+        return "pages/info_seller";
+    }//sec:authentication="name
+
+
     /*회원 정보*/
     @GetMapping("/userInfo")
-    public String userInfo(@AuthenticationPrincipal PrincipalDetails user){
+    public String userInfo(@AuthenticationPrincipal PrincipalDetails user,Model model){
         System.out.println(">>"+user.getMember().toString());
 
-
+        System.out.println(user.getAuthorities());
+        model.addAttribute("member",user.getMember());
         return "pages/userInfo";
     }
 
@@ -98,7 +98,7 @@ public class MemberController {
     /*비밀번호 재설정*/
     @GetMapping("/password-reset")
     public String resetPassword(){
-        return "pages/password-reset";
+        return "pages/password_reset";
 
     }
 
