@@ -67,8 +67,6 @@ public class MemberServiceImpl implements MemberService , UserDetailsService {
 
     }
 
-
-
     @Override
     public void validateDuplicateUser(Member member) {
         memberRepository.findOneByEmail(member.getEmail())
@@ -77,6 +75,10 @@ public class MemberServiceImpl implements MemberService , UserDetailsService {
                 });
     }
 
+    @Override
+    public void updateUserInfo(Member member) {
+
+    }
 
 
 }

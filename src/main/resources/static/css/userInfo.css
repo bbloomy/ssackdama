@@ -5,6 +5,12 @@ a{
 a:hover {
     color:#FF5050;
 }
+.nav-link{
+    color:#FFDA6A;
+}
+.nav-link:hover{
+    color:#FF5050;
+}
 .heart-icon{
     display:flex;
    justify-content: center;

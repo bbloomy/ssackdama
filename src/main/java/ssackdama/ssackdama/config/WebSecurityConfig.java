@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http)throws Exception{
         http
         .authorizeRequests()
-        .antMatchers("/","/css/**","/img/**","/signup","/password_reset").permitAll()
+        .antMatchers("/","/css/**","/img/**","/signup","/password-reset").permitAll()
                 .antMatchers("/manage/**").access("hasRole('ROLE_SELLER')")
                 .anyRequest().authenticated()//인증
         ;
@@ -40,12 +40,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         .loginPage("/login")
         .permitAll()
         .usernameParameter("email");
+
         http
         .logout()
                 .logoutUrl("/logout")
         .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)
         .permitAll();
+        /*
+        * http
+                .exceptionHandling()
+                .accessDeniedPage("/pages/error");
+        * */
 
         }
     @Override//로그인

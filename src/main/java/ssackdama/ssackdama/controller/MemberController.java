@@ -2,16 +2,15 @@ package ssackdama.ssackdama.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ssackdama.ssackdama.config.auth.PrincipalDetails;
-import ssackdama.ssackdama.domain.Store;
-import ssackdama.ssackdama.service.StoreServiceImpl;
 import ssackdama.ssackdama.domain.Member;
 import ssackdama.ssackdama.service.MemberServiceImpl;
 
@@ -76,12 +75,33 @@ public class MemberController {
 
     /*회원 정보*/
     @GetMapping("/userInfo")
-    public String userInfo(@AuthenticationPrincipal PrincipalDetails user,Model model){
-        System.out.println(">>"+user.getMember().toString());
-
-        System.out.println(user.getAuthorities());
-        model.addAttribute("member",user.getMember());
+    public String userInfo(@AuthenticationPrincipal PrincipalDetails userDetails,Model model){
+        //user.getMember()
+        model.addAttribute("member",userDetails.getMember());
         return "pages/userInfo";
+    }
+
+    @PostMapping("/userInfo")
+    /*이름 전화번호 주소 따로 만들기 vs dynamicUpdate*/
+    public String userInfo_edit(@AuthenticationPrincipal PrincipalDetails userDetails,Member member){//@RequestBody->
+        System.out.println("!!!!controller!!!!!"+member.getEmail());
+        memberServiceImpl.updateUserInfo(member);
+        return "redirect:/userInfo";
+    }
+    @PostMapping("/password")
+    /*비밀번호!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    public void password_edit(HttpServletRequest request, HttpServletResponse response,
+                              Model model, RedirectAttributes ra,
+                              @AuthenticationPrincipal PrincipalDetails userDetails){
+        Member member = userDetails.getMember();
+
+        String oldPassword = request.getParameter("password");
+        String newPassword = request.getParameter("newPassword");
+        String newPasswordCheck = request.getParameter("newPasswordCheck");
+
+
+
+
     }
 
     /*회원 탈퇴*/

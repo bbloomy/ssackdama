@@ -24,10 +24,10 @@
                 <div style="display:inline;" sec:authorize="isAuthenticated()">
                     <a th:href="@{/logout}" id="logout_icon"><i class="fas fa-lg fa-sign-out-alt"></i></a>
 
-                    <div style="display:inline;" sec:authorize="hasRole('SELLER')">
+                    <div style="display:inline;" sec:authorize="hasRole('ROLE_SELLER')">
                         <a th:href="@{/info-seller}" id="seller_icon"><i class="fas fa-lg fa-store"></i></a>
                     </div>
-                    <div style="display:inline;" sec:authorize="hasRole('CUSTOMER')">
+                    <div style="display:inline;" sec:authorize="hasRole('ROLE_CUSTOMER')">
                        <a th:href="@{/info}" id="customer_icon"><i class="far fa-lg fa-user"></i></a>
                     </div>
                 </div>
