@@ -25,4 +25,9 @@ public class StoreServiceImpl implements StoreService {
 
     }
 
+    public List<Store> getStoresByUser(Long member_id){
+        List<Store> storeList = storeRepository.findByUser(member_id);
+        return storeList;
+    }
+
 }
