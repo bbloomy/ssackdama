@@ -1,11 +1,14 @@
 package ssackdama.ssackdama.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ssackdama.ssackdama.config.auth.PrincipalDetails;
 import ssackdama.ssackdama.domain.Store;
 import ssackdama.ssackdama.service.StoreServiceImpl;
 import ssackdama.ssackdama.domain.Member;
@@ -69,13 +72,14 @@ public class MemberController {
 
     /*회원로그 내역*/
     @GetMapping("/info")
-    public String setting(Model model){
+    public String setting(){
         return "pages/info";
-    }
+    }//sec:authentication="name"
     /*회원 정보*/
     @GetMapping("/userInfo")
-    public String userInfo(Model model){
-        model.addAttribute("telephone","010-0000-0000");
+    public String userInfo(@AuthenticationPrincipal PrincipalDetails user){
+        System.out.println(">>"+user.getMember().toString());
+
 
         return "pages/userInfo";
     }
@@ -97,6 +101,7 @@ public class MemberController {
         return "pages/password-reset";
 
     }
+
 
 }
 

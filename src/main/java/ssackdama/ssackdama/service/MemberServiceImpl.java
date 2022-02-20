@@ -51,6 +51,7 @@ public class MemberServiceImpl implements MemberService , UserDetailsService {
     }
 
 
+
     @Override
     public void withdraw(String checkPassword) throws Exception{
         UserDetails loginedMember = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

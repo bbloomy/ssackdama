@@ -12,7 +12,7 @@ public class PrincipalDetails implements UserDetails {
     public PrincipalDetails(Member member){
         this.member=member;
     }
-    // Member의 권한 리턴
+    // Member의 권한
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> collect=new ArrayList<>();
@@ -24,15 +24,21 @@ public class PrincipalDetails implements UserDetails {
         });
         return collect;
     }
-
+    //password
     @Override
     public String getPassword() {
         return member.getPassword();
     }
 
+    //email
     @Override
     public String getUsername() {
         return member.getEmail();
+    }
+
+    //address
+    public Member getMember(){
+        return member;
     }
 
     @Override

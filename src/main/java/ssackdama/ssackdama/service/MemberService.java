@@ -14,8 +14,6 @@ public interface MemberService{
 
 
 
-
-
     // 중복 회원
     public void validateDuplicateUser(Member member);
 
