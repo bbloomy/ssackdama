@@ -32,9 +32,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         .authorizeRequests()
         .antMatchers("/","/css/**","/img/**","/signup","/password-reset").permitAll()
                 .antMatchers("/manage/**").access("hasRole('ROLE_SELLER')")
-                .anyRequest().authenticated()//인증
-        ;
-//
+                .anyRequest().authenticated()
+             ;
+
         http
         .formLogin()
         .loginPage("/login")
@@ -48,10 +48,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .invalidateHttpSession(true)
         .permitAll();
         /*
-        * http
+           .and()
                 .exceptionHandling()
-                .accessDeniedPage("/error/403");
-        * */
+                .accessDeniedHandler(accessDeniedHandler)
+         */
+
 
         }
     @Override//로그인
