@@ -9,7 +9,6 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ssackdama.ssackdama.config.auth.PrincipalDetails;
 import ssackdama.ssackdama.domain.Member;
 import ssackdama.ssackdama.service.MemberServiceImpl;
@@ -90,17 +89,15 @@ public class MemberController {
     }
     @PostMapping("/password")
     /*비밀번호!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-    public void password_edit(HttpServletRequest request, HttpServletResponse response,
-                              Model model, RedirectAttributes ra,
+    public String password_edit(HttpServletRequest request,
                               @AuthenticationPrincipal PrincipalDetails userDetails){
         Member member = userDetails.getMember();
+        String oldPassword = request.getParameter("oldPassword");
+        String password = request.getParameter("password");
+        String passwordConfirm = request.getParameter("passwordConfirm");
+        memberServiceImpl.updatePassword(oldPassword,password,passwordConfirm);
 
-        String oldPassword = request.getParameter("password");
-        String newPassword = request.getParameter("newPassword");
-        String newPasswordCheck = request.getParameter("newPasswordCheck");
-
-
-
+        return "redirect:/userInfo";
 
     }
 
@@ -112,7 +109,7 @@ public class MemberController {
 
     @PostMapping("/withdrawal")
     public String withdrawal(Member member, HttpSession session)throws Exception{
-        memberServiceImpl.withdraw(member.getPassword());
+        memberServiceImpl.withdrawal(member.getPassword());
         return "redirect:/";
     }
     /*비밀번호 재설정*/
