@@ -10,7 +10,7 @@ import ssackdama.ssackdama.domain.Member;
 public interface MemberService{
 
     // 회원 가입
-    public boolean join(Member member);
+    public void join(Member member) throws Exception;
 
     // 회원 정보 수정
     void updateUserInfo(Member member);

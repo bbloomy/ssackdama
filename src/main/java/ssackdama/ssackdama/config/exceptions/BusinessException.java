@@ -1,12 +1,12 @@
 package ssackdama.ssackdama.config.exceptions;
 
-public class BussinessException extends RuntimeException{
+public class BusinessException extends RuntimeException{
     private ErrorCode errorCode;
-    public BussinessException(String msg,ErrorCode errorCode){
+    public BusinessException(String msg, ErrorCode errorCode){
         super(msg);
         this.errorCode=errorCode;
     }
-    public BussinessException(ErrorCode errorCode){
+    public BusinessException(ErrorCode errorCode){
         super(errorCode.getMessage());
         this.errorCode=errorCode;
     }

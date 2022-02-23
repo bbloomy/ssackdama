@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import ssackdama.ssackdama.service.MyUserDetailsService;
 
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true,prePostEnabled = true) // @Secured 활성화,@PreAuthorize 활성화
@@ -47,13 +48,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)
         .permitAll();
-        /*
-           .and()
-                .exceptionHandling()
-                .accessDeniedHandler(accessDeniedHandler)
-         */
-
-
         }
     @Override//로그인
     public void configure(AuthenticationManagerBuilder auth) throws Exception{
@@ -62,4 +56,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
 
 }
+
 
