@@ -8,10 +8,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import ssackdama.ssackdama.config.exceptions.BusinessException;
+import ssackdama.ssackdama.config.exceptions.ErrorCode;
 import ssackdama.ssackdama.domain.Member;
 import ssackdama.ssackdama.repository.MemberRepository;
-import ssackdama.ssackdama.repository.ProductRepository;
-import ssackdama.ssackdama.repository.StoreRepository;
+
 
 //PrincipalDetailsService
 @Service
@@ -53,7 +54,7 @@ public class MemberServiceImpl implements MemberService{
             memberRepository.deleteById(omember.getId());
             SecurityContextHolder.clearContext();
         }else{
-            throw new Exception("비밀번호가 일치하지 않습니다.");
+            throw new BusinessException("비밀번호가 일치하지 않습니다.", ErrorCode.ENTITY_NOT_FOUND);
         }
 
     }
