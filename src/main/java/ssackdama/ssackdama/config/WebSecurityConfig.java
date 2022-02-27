@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import ssackdama.ssackdama.service.MemberServiceImpl;
+import ssackdama.ssackdama.service.MyUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
@@ -18,7 +18,7 @@ import ssackdama.ssackdama.service.MemberServiceImpl;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
-    private MemberServiceImpl memberServiceImpl;
+    private MyUserDetailsService myUserDetailsService;
 
 
     @Bean
@@ -31,26 +31,33 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         http
         .authorizeRequests()
         .antMatchers("/","/css/**","/img/**","/signup","/password-reset").permitAll()
-                .anyRequest().authenticated()//인증
+                .antMatchers("/manage/**").access("hasRole('ROLE_SELLER')")
+                .anyRequest().authenticated()
+             ;
 
-        ;
-        //                .antMatchers("/search/**").access("hasRole('SELLER')")
         http
         .formLogin()
         .loginPage("/login")
         .permitAll()
         .usernameParameter("email");
+
         http
         .logout()
                 .logoutUrl("/logout")
         .logoutSuccessUrl("/")
                 .invalidateHttpSession(true)
         .permitAll();
+        /*
+           .and()
+                .exceptionHandling()
+                .accessDeniedHandler(accessDeniedHandler)
+         */
+
 
         }
     @Override//로그인
     public void configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.userDetailsService(memberServiceImpl).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder());
     }
 
 

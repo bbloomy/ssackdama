@@ -3,11 +3,9 @@ package ssackdama.ssackdama.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 
 import javax.persistence.*;
+import java.util.Date;
 
 //@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Getter@Setter@NoArgsConstructor
@@ -35,6 +33,9 @@ public class Member extends BaseTimeEntity {
     private Role role;
 
     private Boolean enabled;
+
+    @Column(name="password_changed_time")
+    private Date passwordChangedTime;
 
     public Member(String email, String password, String username, Role role) {
         this.email = email;

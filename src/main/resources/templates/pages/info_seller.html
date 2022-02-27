@@ -8,6 +8,7 @@
 <head>
     <link rel="stylesheet" th:href="@{css/info.css}">
     <link rel="stylesheet" th:href="@{css/background.css}">
+
 </head>
 <!--content-->
 <th:block layout:fragment="content">
@@ -36,40 +37,14 @@
             <div class="col-md-9 border-right">
                 <div class="p-3 py-5">
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">찜한 가게</h4>
+                        <h4 class="text-right">내 가게</h4>
                     </div>
                     <div class="list-group list-group-flush">
                         <div class="list-group-item" style="display:flex;align-items: center;flex-direction: row-reverse;">
                             <div class="col-11">
-                            <a href="#가게명" style="">
-                            <div class="justify-content-between d-flex w-100 ">
-                                <h5 class="mb-1">가게명
-                                </h5>
-                                <small class="text-muted">2022.03.03.</small>
-                            </div>
-                            <small class="text-muted">서울시 도봉구 도롱뇽동</small>
-                            </a>
-                            </div>
-
-                            <div class="col-1 heart-icon">
-                                <a href="#하트"><i class="far fa-lg fa-heart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">자세히 보러가기</button></div>
-                </div>
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">찜한 상품 내역</h4>
-                    </div>
-
-                    <div class="list-group list-group-flush">
-                        <div class="list-group-item" style="display:flex;align-items: center;flex-direction: row-reverse;">
-                            <div class="col-11">
-                                <a href="#상품명">
+                                <a href="#가게명" style="">
                                     <div class="justify-content-between d-flex w-100 ">
-                                        <h5 class="mb-1">상품명
+                                        <h5 class="mb-1">가게명
                                         </h5>
                                         <small class="text-muted">2022.03.03.</small>
                                     </div>
@@ -78,20 +53,20 @@
                             </div>
 
                             <div class="col-1 heart-icon">
-                                <a href="#하트"><i class="far fa-lg fa-heart"></i></a>
+                                <a href="#삭제"><i class="fas fa-lg fa-times"></i></a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">자세히 보러가기</button></div>
+                    <div class="mt-5 text-center"><button  onclick = "location.href = '/manage/store/add'"  class="btn btn-primary profile-button" type="button">가게 추가하기</button></div>
                 </div>
 
             </div>
 
 
         </div>
-        </div>
-        </div>
+    </div>
+    </div>
     </div>
 
 </th:block>

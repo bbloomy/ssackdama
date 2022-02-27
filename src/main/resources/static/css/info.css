@@ -1,3 +1,4 @@
+
 a{
     text-decoration:none;
     color:inherit;
@@ -5,13 +6,16 @@ a{
 a:hover {
     color:#FF5050;
 }
+.nav-link{
+    color:#FFDA6A;
+}
+.nav-link:hover{
+    color:#FF5050;
+}
 .heart-icon{
     display:flex;
    justify-content: center;
    color:#FFDA6A;
-}
-body {
-    background: #FFDA6A
 }
 
 .form-control:focus {

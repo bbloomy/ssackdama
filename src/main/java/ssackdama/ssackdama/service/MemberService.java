@@ -12,6 +12,8 @@ public interface MemberService{
     // 회원 가입
     public boolean join(Member member);
 
+    // 회원 정보 수정
+    void updateUserInfo(Member member);
 
 
     // 중복 회원
@@ -19,6 +21,7 @@ public interface MemberService{
 
 
     // 회원 탈퇴
-    public void withdraw(String member_id) throws Exception;
+    void withdrawal(String checkPassword) throws Exception;
 
+    void updatePassword(String oldPassword, String password, String passwordConfirm);
 }

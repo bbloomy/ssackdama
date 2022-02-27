@@ -23,7 +23,7 @@ class MemberServiceIntegrationTest {
     @Test
     public void join() throws Exception{
         //given
-        Member added=new Member("1@gmail.com","password","user1", Role.CUSTOMER);
+        Member added=new Member("1@gmail.com","password","user1", Role.ROLE_CUSTOMER);
         memberService.join(added);
         //when
         Member member = memberRepository.findOneByEmail("1@gmail.com").get();
@@ -34,8 +34,8 @@ class MemberServiceIntegrationTest {
     @Test
     public void duplicate_user_exception() throws Exception{
         //Given
-        Member member = new Member("2@gmail.com","password","user2", Role.CUSTOMER);
-        Member member2 = new Member("2@gmail.com","password","user2", Role.CUSTOMER);
+        Member member = new Member("2@gmail.com","password","user2", Role.ROLE_CUSTOMER);
+        Member member2 = new Member("2@gmail.com","password","user2", Role.ROLE_CUSTOMER);
         //when
         memberService.join(member);
         IllegalStateException e = assertThrows(IllegalStateException.class,

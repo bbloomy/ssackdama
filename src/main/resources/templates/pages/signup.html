@@ -28,7 +28,7 @@
 
 
 
-            <form method="post"  th:action="@{/signup}">
+            <form method="post"  th:action="@{/signup}" >
                 <div th:if="${param.error}">
                     회원 가입에 실패하였습니다.
                     동일한 이메일이 있어요
@@ -55,11 +55,11 @@
 
                 <div class="col mt-3">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="customer" value="CUSTOMER">
+                        <input class="form-check-input" type="radio" name="role" id="customer" value="ROLE_CUSTOMER">
                         <label class="form-check-label" for="customer">일반 회원</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="seller" value="SELLER">
+                        <input class="form-check-input" type="radio" name="role" id="seller" value="ROLE_SELLER">
                         <label class="form-check-label" for="seller">판매자 회원</label>
                     </div>
                 </div>
