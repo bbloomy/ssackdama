@@ -8,6 +8,12 @@
 <th:block layout:fragment="content">
     <form method="post" th:action="@{/product/add}" name="ProductAddForm">
         <div class="form-group">
+            <select>
+                <option th:each="store : ${storeList}" th:value="${store}" th:utext="${store.storeName">
+                </option>
+            </select>
+
+
             <label for="store" style="color:#8A92A6;">Store</label>
             <input type="text" class="form-control" id="store" name="store_id">
         </div>

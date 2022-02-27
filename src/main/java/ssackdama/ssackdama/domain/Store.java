@@ -20,6 +20,11 @@ public class Store extends BaseEntity{
     /*
         non-constant field name : lowerCamelCase
      */
+    @ManyToOne(cascade = CascadeType.ALL, optional = false) // optional false 또는 nullable false이면 member없이 store생성 불가
+    @JoinColumn(name="MEMBER_ID")
+    //만약, name을 작성하지 않는다면, 자동으로 table명_pk명 으로 join된다.
+    private Member member;
+
     @Column(name="storeName")
     private String storeName;
 
