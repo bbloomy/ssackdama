@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import ssackdama.ssackdama.config.exceptions.BusinessException;
 import ssackdama.ssackdama.config.exceptions.EmailDuplicateException;
+
 import ssackdama.ssackdama.config.exceptions.ErrorCode;
 import ssackdama.ssackdama.domain.Member;
 import ssackdama.ssackdama.repository.MemberRepository;

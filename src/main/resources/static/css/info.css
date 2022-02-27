@@ -1,3 +1,4 @@
+
 a{
     text-decoration:none;
     color:inherit;
@@ -15,9 +16,6 @@ a:hover {
     display:flex;
    justify-content: center;
    color:#FFDA6A;
-}
-body {
-    background: #FFDA6A
 }
 
 .form-control:focus {

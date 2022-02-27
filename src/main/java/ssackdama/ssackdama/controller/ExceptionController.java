@@ -9,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.NoHandlerFoundException;
 import ssackdama.ssackdama.config.exceptions.BusinessException;
 import ssackdama.ssackdama.config.exceptions.EmailDuplicateException;
+
 import ssackdama.ssackdama.config.exceptions.ErrorCode;
 import ssackdama.ssackdama.config.exceptions.ErrorResponse;
 
@@ -26,18 +28,8 @@ public class ExceptionController {
         logger.error("handleAccessDeniedException", throwable);
         String errorMessage = (throwable != null ? throwable.getMessage() : "Unknown error");
         model.addAttribute("errorMessage", errorMessage);
-        return "pages/error";
+        return "error/403";
     }
-    // 동작 안하는 중 .. 없는 페이지
-    /*@ExceptionHandler(NoHandlerFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)//404
-    public String no_page(final NoHandlerFoundException throwable, final Model model) {
-        logger.error("noHandlerFoundException", throwable);
-        String errorMessage = (throwable != null ? throwable.getMessage() : "Unknown error");
-        model.addAttribute("errorMessage", errorMessage);
-        return "pages/error";
-    }*/
-
 
     @ExceptionHandler(EmailDuplicateException.class)
     public String handleEmailDuplicateException(final EmailDuplicateException e){
@@ -46,6 +38,7 @@ public class ExceptionController {
     }
     @ExceptionHandler(BusinessException.class)//의미 없음
     public ResponseEntity<ErrorResponse> handleBusinessException(final BusinessException e) {
+
         logger.error("BusinessException", e);
         final ErrorCode errorCode = e.getErrorCode();
         final ErrorResponse response = ErrorResponse.of(errorCode);
@@ -58,6 +51,6 @@ public class ExceptionController {
         logger.error("handleException", throwable);
         String errorMessage = (throwable != null ? throwable.getMessage() : "Unknown error");
         model.addAttribute("errorMessage", errorMessage);
-        return "pages/error";
+        return "error/500";
     }
 }
