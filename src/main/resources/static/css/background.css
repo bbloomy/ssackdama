@@ -1,0 +1,9 @@
+body {
+    background: #FFDA6A;
+}
+.container{
+     background:white;
+     border-radius: .25rem;
+     margin: 5rem 0rem 5rem 0rem;
+     padding: 5rem;
+}
