@@ -14,11 +14,11 @@ import java.util.Date;
 
 public class Product extends BaseEntity {
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(optional = false) // optional false 햐면 연관된 엔티티가 항상 있어야 함.
     @JoinColumn(name="store_id")
     private Store store;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name="MEMBER_ID")
     private Member member;
 
