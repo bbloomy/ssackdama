@@ -8,6 +8,7 @@ public enum ErrorCode {
 
     /*Member*/
     EMAIL_DUPLICATION(400, "M001", "Email is Duplication"),
+    PASSWORD_INCORRECT(400,"M011","Password is incorrect"),
     MEMBER_NOT_FOUND(400,"M002","Member not Found"),
     ;
     private final String code;

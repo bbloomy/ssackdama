@@ -82,19 +82,7 @@ public class MemberController {
         memberServiceImpl.updateUserInfo(member);
         return "redirect:/userInfo";
     }
-    @PostMapping("/password")
-    /*비밀번호!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-    public String password_edit(HttpServletRequest request,
-                              @AuthenticationPrincipal PrincipalDetails userDetails){
-        Member member = userDetails.getMember();
-        String oldPassword = request.getParameter("oldPassword");
-        String password = request.getParameter("password");
-        String passwordConfirm = request.getParameter("passwordConfirm");
-        memberServiceImpl.updatePassword(oldPassword,password,passwordConfirm);
 
-        return "redirect:/userInfo";
-
-    }
 
     /*회원 탈퇴*/
     @GetMapping("/withdrawal")
@@ -114,6 +102,23 @@ public class MemberController {
 
     }
 
+    @GetMapping("/password")
+    public String password(@AuthenticationPrincipal PrincipalDetails userDetails,Model model){
+        model.addAttribute("member",userDetails.getMember());
+        return "pages/password";
+    }
+    @PostMapping("/password")
+    public String password_edit(HttpServletRequest request,
+                                @AuthenticationPrincipal PrincipalDetails userDetails){
+        Member member = userDetails.getMember();
+
+        String oldPassword = request.getParameter("oldPassword");
+        String password = request.getParameter("password");
+        memberServiceImpl.updatePassword(member,oldPassword,password);
+
+        return "redirect:/userInfo";
+
+    }
 
 }
 
