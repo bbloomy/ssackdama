@@ -23,5 +23,6 @@ public interface MemberService{
     // 회원 탈퇴
     void withdrawal(String checkPassword) throws Exception;
 
-    void updatePassword(String oldPassword, String password, String passwordConfirm);
+
+    void updatePassword(Member member, String oldPassword, String password);
 }

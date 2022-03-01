@@ -8,10 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import ssackdama.ssackdama.config.exceptions.EmailDuplicateException;
+import ssackdama.ssackdama.config.exceptions.*;
 
-import ssackdama.ssackdama.config.exceptions.EntityNotFoundException;
-import ssackdama.ssackdama.config.exceptions.ErrorCode;
 import ssackdama.ssackdama.domain.Member;
 import ssackdama.ssackdama.repository.MemberRepository;
 
@@ -27,7 +25,7 @@ public class MemberServiceImpl implements MemberService{
     PasswordEncoder passwordEncoder;
 
     @Override
-    public void join(Member member) throws Exception {
+    public void join(Member member){
             validateDuplicateUser(member);
             // 비밀번호 암호화
             member.setPassword(passwordEncoder.encode(member.getPassword()));
@@ -39,13 +37,11 @@ public class MemberServiceImpl implements MemberService{
 
 
     @Override
-    public void withdrawal(String checkPassword) throws Exception{
+    public void withdrawal(String uncheked){
         UserDetails loginedMember = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        Member omember=memberRepository.findOneByEmail(loginedMember.getUsername()).orElseThrow(()-> new EntityNotFoundException("회원이 존재하지 않습니다"));
-        if(!passwordEncoder.matches(checkPassword, omember.getPassword())){
-            throw new EntityNotFoundException("일치하는 회원을 찾을 수 없습니다.", ErrorCode.MEMBER_NOT_FOUND);
-        }
+        Member omember=memberRepository.findOneByEmail(loginedMember.getUsername()).orElseThrow(()-> new MemberNotFoundException("회원이 존재하지 않습니다"));
+        checkPassword(uncheked,omember.getPassword());
         // 회원 삭제
         memberRepository.deleteById(omember.getId());
         SecurityContextHolder.clearContext();
@@ -66,7 +62,15 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public void updatePassword(String oldPassword, String password, String passwordConfirm) {
+    public void updatePassword(Member member, String oldPassword, String password) {
+        checkPassword(oldPassword,member.getPassword());
+        member.setPassword(passwordEncoder.encode(password));
+        memberRepository.save(member);
+    }
 
+    private void checkPassword(String inputPassword,String password){
+        if(!passwordEncoder.matches(inputPassword,password)){
+            throw new InvalidValueException("일치하는 회원을 찾을 수 없습니다.");
+        }
     }
 }
