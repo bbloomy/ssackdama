@@ -22,6 +22,7 @@ public class Member extends BaseTimeEntity {
     @Column(name="username")
     private String username;
 
+
     @Column
     private String phonenumber="";
     //@Embedded
@@ -38,6 +39,7 @@ public class Member extends BaseTimeEntity {
     private Date passwordChangedTime;
 
     public Member(String email, String password, String username, Role role) {
+
         this.email = email;
         this.password = password;
         this.username = username;

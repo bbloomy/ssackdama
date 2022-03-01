@@ -2,7 +2,6 @@ package ssackdama.ssackdama.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -22,7 +21,6 @@ public class MemberController {
     @Autowired
     MemberServiceImpl memberServiceImpl;
 
-
     @GetMapping("/main")
     public String main(Model model){
         model.addAttribute("data","테스트 중");
@@ -36,12 +34,9 @@ public class MemberController {
     }
 
     @PostMapping("/signup")
-    public String create(Member member){
-        if(memberServiceImpl.join(member)){
-            return "redirect:/login";
-        }else{
-            return "redirect:/signup?error";
-        }
+    public String create(Member member) throws Exception{
+        memberServiceImpl.join(member);
+        return "redirect:/login";
 
     }
     /*로그인_로그아웃*/
