@@ -2,8 +2,8 @@ package ssackdama.ssackdama.config.exceptions;
 public enum ErrorCode {
 
     /* Common */
-    // 400 - Bad Request
-    INVALID_INPUT_VALUE(400, "C001", "Invalid Input Value"),
+    /*BusinessException*/
+    INVALID_INPUT_VALUE(400, "C001", "Invalid Input Value"),//InvalidValueException
     ENTITY_NOT_FOUND(400, "C002", " Entity Not Found"),//EntityNotFoundException
 
     /*Member*/
