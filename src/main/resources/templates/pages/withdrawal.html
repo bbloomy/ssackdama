@@ -30,7 +30,9 @@
                             <input type="text" name="password" class="form-control" value="">
                         </div>
                     </div>
-                    <div class="mt-5 text-center">
+                        <p class="p-3" th:utext="${errorMessage}"></p>
+
+                        <div class="mt-5 text-center">
                         <button type="submit" class="btn btn-sm btn-outline-danger">그래도 탈퇴할래요..</button>
                    </div>
                     </form>

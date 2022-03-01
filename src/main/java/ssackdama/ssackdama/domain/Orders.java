@@ -18,6 +18,6 @@ public class Orders extends  BaseEntity{
 
      private Date orderDate;
 
-    @OneToMany(mappedBy = "id",cascade=CascadeType.ALL ,orphanRemoval = true,fetch=FetchType.LAZY )
+    @OneToMany(mappedBy = "orders",cascade=CascadeType.ALL ,orphanRemoval = true,fetch=FetchType.LAZY )
     private List<OrderDetail> orderItems=new ArrayList<>();
 }

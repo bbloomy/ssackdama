@@ -9,12 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.NoHandlerFoundException;
-import ssackdama.ssackdama.config.exceptions.BusinessException;
-import ssackdama.ssackdama.config.exceptions.EmailDuplicateException;
+import ssackdama.ssackdama.config.exceptions.*;
 
-import ssackdama.ssackdama.config.exceptions.ErrorCode;
-import ssackdama.ssackdama.config.exceptions.ErrorResponse;
+import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class ExceptionController {
@@ -31,18 +30,15 @@ public class ExceptionController {
         return "error/403";
     }
 
-    @ExceptionHandler(EmailDuplicateException.class)
-    public String handleEmailDuplicateException(final EmailDuplicateException e){
-        logger.error("EmailDuplicateException",e);
-        return "redirect:/signup?error";
-    }
-    @ExceptionHandler(BusinessException.class)//의미 없음
-    public ResponseEntity<ErrorResponse> handleBusinessException(final BusinessException e) {
+    @ExceptionHandler(BusinessException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ModelAndView handleBusinessException(HttpServletRequest req,final BusinessException e) {
 
-        logger.error("BusinessException", e);
-        final ErrorCode errorCode = e.getErrorCode();
-        final ErrorResponse response = ErrorResponse.of(errorCode);
-        return new ResponseEntity<>(response, HttpStatus.valueOf(errorCode.getStatus()));
+        logger.error("BusinessException:"+e.getErrorCode());
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("pages"+req.getRequestURI());
+        mav.addObject("errorMessage", e.getMessage());
+        return mav;
     }
 
     @ExceptionHandler(Exception.class) // 그외 모든 에러
@@ -53,4 +49,15 @@ public class ExceptionController {
         model.addAttribute("errorMessage", errorMessage);
         return "error/500";
     }
+    /*
+    @ExceptionHandler(BusinessException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<ErrorResponse> handleBusinessException(final BusinessException e) {
+
+        logger.error("BusinessException", e);
+        final ErrorCode errorCode = e.getErrorCode();
+        final ErrorResponse response = ErrorResponse.of(errorCode);
+        return new ResponseEntity<>(response, HttpStatus.valueOf(errorCode.getStatus()));
+    }
+    */
 }

@@ -8,9 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import ssackdama.ssackdama.config.exceptions.BusinessException;
 import ssackdama.ssackdama.config.exceptions.EmailDuplicateException;
 
+import ssackdama.ssackdama.config.exceptions.EntityNotFoundException;
 import ssackdama.ssackdama.config.exceptions.ErrorCode;
 import ssackdama.ssackdama.domain.Member;
 import ssackdama.ssackdama.repository.MemberRepository;
@@ -42,15 +42,13 @@ public class MemberServiceImpl implements MemberService{
     public void withdrawal(String checkPassword) throws Exception{
         UserDetails loginedMember = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        Member omember=memberRepository.findOneByEmail(loginedMember.getUsername()).orElseThrow(()-> new Exception("회원이 존재하지 않습니다"));
-        if(passwordEncoder.matches(checkPassword, omember.getPassword())){
-            //storeRepository;
-
-            memberRepository.deleteById(omember.getId());
-            SecurityContextHolder.clearContext();
-        }else{
-            throw new BusinessException("비밀번호가 일치하지 않습니다.", ErrorCode.ENTITY_NOT_FOUND);
+        Member omember=memberRepository.findOneByEmail(loginedMember.getUsername()).orElseThrow(()-> new EntityNotFoundException("회원이 존재하지 않습니다"));
+        if(!passwordEncoder.matches(checkPassword, omember.getPassword())){
+            throw new EntityNotFoundException("일치하는 회원을 찾을 수 없습니다.", ErrorCode.MEMBER_NOT_FOUND);
         }
+        // 회원 삭제
+        memberRepository.deleteById(omember.getId());
+        SecurityContextHolder.clearContext();
 
     }
 
@@ -58,7 +56,7 @@ public class MemberServiceImpl implements MemberService{
     public void validateDuplicateUser(Member member) {
         memberRepository.findOneByEmail(member.getEmail())
                 .ifPresent(m->{
-                    throw new EmailDuplicateException(member.getEmail());
+                    throw new EmailDuplicateException("회원가입에 실패하였습니다. 이미 가입되어 있습니다.");
                 });
     }
 

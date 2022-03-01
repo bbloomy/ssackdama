@@ -29,10 +29,9 @@
 
 
             <form method="post"  th:action="@{/signup}" >
-                <div th:if="${param.error}">
-                    회원 가입에 실패하였습니다.
-                    동일한 이메일이 있어요
-                </div>
+
+                <p class="p-3" th:utext="${errorMessage}"></p>
+
                 <div class="form-group gray">
                     <label for="username" >이름</label>
                     <input type="text" class="form-control" id="username" name="username">

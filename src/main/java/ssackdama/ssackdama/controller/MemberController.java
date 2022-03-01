@@ -21,10 +21,6 @@ public class MemberController {
     @Autowired
     MemberServiceImpl memberServiceImpl;
 
-    @GetMapping("/error")
-    public String error(){
-        return"pages/error";
-    }
     @GetMapping("/main")
     public String main(Model model){
         model.addAttribute("data","테스트 중");
