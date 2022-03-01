@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import ssackdama.ssackdama.domain.Store;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 
