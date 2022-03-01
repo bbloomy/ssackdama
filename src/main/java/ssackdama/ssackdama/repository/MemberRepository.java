@@ -15,8 +15,6 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query("select u from Member u where u.email = ?1")
     Optional<Member> findOneByEmail(String email);
 
-
-
     @Transactional
     @Override
     void deleteById(Long memberId);
