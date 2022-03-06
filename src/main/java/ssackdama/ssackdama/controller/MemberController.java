@@ -78,7 +78,7 @@ public class MemberController {
     @PostMapping("/userInfo")
     /*이름 전화번호 주소 따로 만들기 vs dynamicUpdate*/
     public String userInfo_edit(HttpServletRequest request,@AuthenticationPrincipal PrincipalDetails userDetails){//@RequestBody->
-        System.out.println(userDetails.getMember());
+        System.out.println(request.getParameter("address"));
         memberServiceImpl.updateUserInfo(userDetails.getMember(),request.getParameterMap());
         return "redirect:/userInfo";
     }

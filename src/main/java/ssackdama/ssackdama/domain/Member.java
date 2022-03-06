@@ -25,9 +25,10 @@ public class Member extends BaseTimeEntity {
 
     @Column
     private String phonenumber="";
-    //@Embedded
-    //private Address address;
-    private String address="";
+
+    @Embedded
+    private Address addresses;
+    //private String address="";
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

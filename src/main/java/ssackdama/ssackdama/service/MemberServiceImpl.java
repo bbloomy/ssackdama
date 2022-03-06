@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import ssackdama.ssackdama.config.exceptions.*;
 
+import ssackdama.ssackdama.domain.Address;
 import ssackdama.ssackdama.domain.Member;
 import ssackdama.ssackdama.repository.MemberRepository;
 
@@ -64,6 +65,16 @@ public class MemberServiceImpl implements MemberService{
         System.out.println(parameterMap.get("phonenumber")[0]);
         if(!StringUtils.isNullOrEmpty(parameterMap.get("phonenumber")[0])){
             member.setPhonenumber(parameterMap.get("phonenumber")[0]);
+        }
+        if(!(StringUtils.isNullOrEmpty(parameterMap.get("address")[0])
+                && StringUtils.isNullOrEmpty(parameterMap.get("zonecode")[0]))
+        ){
+            member.setAddresses(new Address(
+                    parameterMap.get("zonecode")[0],
+                    parameterMap.get("address")[0],
+                    parameterMap.get("detail_address")[0]
+            ));
+
         }
 
       memberRepository.save(member);
