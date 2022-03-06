@@ -71,7 +71,7 @@
                                     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
                                     <div class="row">
                                         <div class="col-md-12"><label class="labels">이름</label>
-                                            <input name="username" th:value="${member.username}" type="text" class="form-control" >
+                                            <input readonly="readonly" name="username" th:value="${member.username}" type="text" class="form-control" >
                                         </div>
                                         <div class="col-md-12"><label class="labels">전화번호</label>
                                             <input  name="phonenumber" th:value="${member.phonenumber}" type="text" class="form-control" >
@@ -79,10 +79,11 @@
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-md-12"><label class="labels">주소</label>
-                                            <input th:value="${member.address}" type="text" class="form-control"></div>
+                                            <input name="address" th:value="${member.address}" type="text" class="form-control"></div>
                                         <div class="col-md-12"><label class="labels">우편번호</label>
-                                            <input th:value="${member.address}" type="text" class="form-control"></div>
-                                        <div class="col-md-6"><label class="labels">시/군/구</label><input type="text" class="form-control" value=""></div>
+                                            <input   th:value="${member.address}" type="text" class="form-control"></div>
+                                        <div class="col-md-6"><label class="labels">시/군/구</label>
+                                            <input type="text" class="form-control" value=""></div>
                                         <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value=""></div>
                                     </div>
                                     <div class="mt-5 text-center"><button class="btn profile-button" type="submit">수정완료</button></div>

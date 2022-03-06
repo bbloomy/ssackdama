@@ -1,4 +1,5 @@
 package ssackdama.ssackdama.service;
+import com.mysql.cj.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -12,6 +13,8 @@ import ssackdama.ssackdama.config.exceptions.*;
 
 import ssackdama.ssackdama.domain.Member;
 import ssackdama.ssackdama.repository.MemberRepository;
+
+import java.util.Map;
 
 
 //PrincipalDetailsService
@@ -57,8 +60,13 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public void updateUserInfo(Member member) {
+    public void updateUserInfo(Member member, Map<String, String[]> parameterMap) {
+        System.out.println(parameterMap.get("phonenumber")[0]);
+        if(!StringUtils.isNullOrEmpty(parameterMap.get("phonenumber")[0])){
+            member.setPhonenumber(parameterMap.get("phonenumber")[0]);
+        }
 
+      memberRepository.save(member);
     }
 
     @Override

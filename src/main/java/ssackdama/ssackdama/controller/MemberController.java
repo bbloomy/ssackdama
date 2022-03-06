@@ -77,9 +77,9 @@ public class MemberController {
 
     @PostMapping("/userInfo")
     /*이름 전화번호 주소 따로 만들기 vs dynamicUpdate*/
-    public String userInfo_edit(@AuthenticationPrincipal PrincipalDetails userDetails,Member member){//@RequestBody->
-        System.out.println("!!!!controller!!!!!"+member.getEmail());
-        memberServiceImpl.updateUserInfo(member);
+    public String userInfo_edit(HttpServletRequest request,@AuthenticationPrincipal PrincipalDetails userDetails){//@RequestBody->
+        System.out.println(userDetails.getMember());
+        memberServiceImpl.updateUserInfo(userDetails.getMember(),request.getParameterMap());
         return "redirect:/userInfo";
     }
 
@@ -91,7 +91,7 @@ public class MemberController {
     }
 
     @PostMapping("/withdrawal")
-    public String withdrawal(Member member, HttpSession session)throws Exception{
+    public String withdrawal(Member member)throws Exception{
         memberServiceImpl.withdrawal(member.getPassword());
         return "redirect:/";
     }

@@ -27,7 +27,7 @@ public class Member extends BaseTimeEntity {
     private String phonenumber="";
     //@Embedded
     //private Address address;
-    private String address;
+    private String address="";
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -46,16 +46,8 @@ public class Member extends BaseTimeEntity {
         this.role = role;
     }
 
-
     @Override
     public String toString() {
-        return "User{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", username='" + username + '\'' +
-                ", address='" + address + '\'' +
-                ", role=" + role +
-                '}';
+        return "Member{email"+getEmail()+"password"+getPassword()+"username"+getUsername()+"phonenumber"+getPhonenumber()+"}";
     }
-
 }
