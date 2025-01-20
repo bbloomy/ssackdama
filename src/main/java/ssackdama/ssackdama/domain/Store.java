@@ -1,34 +1,20 @@
 package ssackdama.ssackdama.domain;
 
-public class Store {
 
-    //가게 dto!
+import javax.persistence.*;
+
+@Entity
+//@AttributeOverride(name="id", column = @Column(name="STORE_ID"))
+
+public class Store extends BaseEntity{
+
+    /*
+        non-constant field name : lowerCamelCase
+     */
+
+    private int storeName;
+    private Images storeImages;
+    private Address storeAddress;
+    private int storePhoneNumber;
 
 }
-
-/* ---dto 예제--------
-package board.board.dto;
-
-import lombok.Data;
-
-@Data
-public class BoardDto {
-
-    private int boardIdx;
-
-    private String title;
-
-    private String contents;
-
-    private int hitCnt;
-
-    private String creatorId;
-
-    private String createdDatetime;
-
-    private String updaterId;
-
-    private String updatedDatetime;
-}
-
- */

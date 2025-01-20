@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html   lagn="ko"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layouts/layout}"
+>
+<head>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<th:block layout:fragment="content">
+    <div class="container-fluid" style="width:80%">
+        <!--광고 영역-->
+        <div class="row" area-label="광고 영역">
+            <div id="adCarousel" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#adCarousel" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#adCarousel" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#adCarousel" data-bs-slide-to="2"></li>
+                </ol>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/banner-ad1.png" style="width:100%;">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="img/banner-ad2.png"  style="width:100%;">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="img/banner-ad3.png"  style="width:100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--카테고리-->
+        <div class="row"  area-label="카테고리">
+            <div  style="padding-top:25px">
+                <div style="height:100px;background:#AfB5BE;">자세히 검색 가기</div>
+            </div>
+        </div>
+        <!--지금 바로 올라온 공고 영역-->
+        <div class="row" area-label="지금 바로 올라온 공고 영역">
+            <div class="main_title">지금 바로 올라온 공고&nbsp
+                <img src="img/emoji-smile.svg"/>
+            </div>
+            <div class="main_area">
+                <div class="card-list">
+                    <div class="card">
+                        <img src="img/food.svg" class="img-fluid rounded-start">
+                        <div class="card-body">
+                            <div class="card-title">팟타이</div>
+                            <p class="card-text" style="text-align:right;margin-bottom:12px;color:#152536;"> 남은 수량 : 5인분</p>
+                            <p class="card-text" style="color:#68717A;">사람들에게 맛있다고 소문난 맛집! 흔치않은 기회임</p>
+                            <p class="card-text"> Last Order : 10시 30분</p>
+                            <p class="card-text" style="font-size:12px;text-align:right;color:#ABB5BE;">3분전 업로드</p>
+                            <p class="card-text"style="font-size:12px;text-align:right;color:#ABB5BE;"> 자세히 보러가기</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="img/food.svg" class="img-fluid rounded-start">
+                        <div class="card-body">
+                            <div class="card-title">팟타이</div>
+                            <p class="card-text" style="text-align:right;margin-bottom:12px;color:#152536;"> 남은 수량 : 5인분</p>
+                            <p class="card-text" style="color:#68717A;">사람들에게 맛있다고 소문난 맛집! 흔치않은 기회임</p>
+                            <p class="card-text"> Last Order : 10시 30분</p>
+                            <p class="card-text" style="font-size:12px;text-align:right;color:#ABB5BE;">3분전 업로드</p>
+                            <p class="card-text"style="font-size:12px;text-align:right;color:#ABB5BE;"> 자세히 보러가기</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="img/food.svg" class="img-fluid rounded-start">
+                        <div class="card-body">
+                            <div class="card-title">팟타이</div>
+                            <p class="card-text" style="text-align:right;margin-bottom:12px;color:#152536;"> 남은 수량 : 5인분</p>
+                            <p class="card-text" style="color:#68717A;">사람들에게 맛있다고 소문난 맛집! 흔치않은 기회임</p>
+                            <p class="card-text"> Last Order : 10시 30분</p>
+                            <p class="card-text" style="font-size:12px;text-align:right;color:#ABB5BE;">3분전 업로드</p>
+                            <p class="card-text"style="font-size:12px;text-align:right;color:#ABB5BE;"> 자세히 보러가기</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--내 주변 마감세일 찾기-->
+        <div class="row"  area-label="내 주변 마감세일 찾기">
+            <div class="main_title">내 주변 마감세일 찾기&nbsp
+                <img src="img/geo-alt.svg"/>
+            </div>
+            <div class="main_area">
+                <div class="form-group" style="display:flex;justify-content: flex-end;">
+                    <div class="area_picker">
+                        <label for="firstarea" class="form-label" style="margin-right:10px;">시/도</label>
+                        <div >
+                            <select class="form-control" id="firstarea">
+                                <option>서울특별시</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="area_picker">
+                        <label for="secondarea" class="form-label"style="margin-right:10px;">시/군/구</label>
+                        <div >
+                            <select class="form-control" id="secondarea">
+                                <option>인생구</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div  class="area_picker">
+                        <label for="thirdarea" class="form-label"style="margin-right:10px;">읍/면/동</label>
+                        <div>
+                            <select class="form-control" id="thirdarea">
+                                <option>행복동</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--지도 필요함-->
+                <div id="map_area"></div>
+            </div>
+        </div>
+
+
+
+        <!--우리 동네 가게 홍보-->
+        <div class="col"area-label="우리 동네 가게 홍보">
+            <div class="main_title">우리 동네 가게 홍보&nbsp
+                <img src="img/shop.svg"/>
+            </div>
+            <div class="main_area">
+                <div class="form-group row" style="display:flex;justify-content: flex-end;align-items: center;">
+                    <label for="keywordform" class="col-sm-2 col-form-label">키워드</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" id="keywordform">
+                            <option>한식</option>
+                            <option>중식</option>
+                            <option>일식</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="height:231px;background:#ABB5BE;"></div>
+            </div>
+        </div>
+    </div>
+    </th:block>
+
+</html>

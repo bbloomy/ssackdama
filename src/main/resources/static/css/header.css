@@ -1,0 +1,12 @@
+  #searchInput{
+            width: 80%;
+            border-radius: 10px;
+            height: 50%;
+        }
+    @media screen and (min-width: 300px)
+     { #logo{ width: 10rem } }
+    #headerIcon{
+        margin-left: 0.3rem;
+        width:1.5rem;
+        color:#E5E5E5;
+    }
