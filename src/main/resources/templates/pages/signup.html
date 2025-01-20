@@ -1,44 +1,69 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout2}"
+      xmlns="http://www.w3.org/1999/html">
 <head>
-    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" th:href="@{css/sign.css}">
+    <script type="text/javascript">
+        function checkPassword(){
+            const pw1=document.getElementById("password").value;
+            const pw2=document.getElementById("apassword").value;
+            console.log(pw1,pw2);
+            if(pw1===pw2){
+                const submitbtn=document.getElementById('signInBtn');
+                submitbtn.disabled = false;
+            }
+        }
+    </script>
 </head>
 <!--content-->
 <th:block layout:fragment="content">
-    <div class="container" style="display:flex;justify-content: center;">
-        <div  style="width: 516px;height: 546px;left: 462px;top: 190px; padding:100px;">
+    <div class="container centered">
+        <div class="sign-up-in-form">
+            <a th:href="@{/}"><img src="img/login-logo.svg" style="width:100px"/></a>
             <div class="title">
                 회원 가입</div>
 
-            <form method="post" action="/signup" name="registerForm">
-                <div class="form-group">
-                    <div class="form-group">
-                        <label for="userName" style="color:#8A92A6;">이름</label>
-                        <input type="text" class="form-control form-control-lg" id="userName" name="userName">
-                    </div>
-                    <label for="email" class="form-label" style="color:#8A92A6;">이메일 주소</label>
-                    <input type="email" class="form-control form-control-lg" id="email" name="email"aria-describedby="emailHelp">
+
+
+            <form method="post"  th:action="@{/signup}" >
+
+                <p class="p-3" th:utext="${errorMessage}"></p>
+
+                <div class="form-group gray">
+                    <label for="username" >이름</label>
+                    <input type="text" class="form-control" id="username" name="username">
                 </div>
-                <div class="form-group">
-                    <label for="password"style="color:#8A92A6;">비밀번호</label>
-                    <input type="password" class="form-control form-control-lg" id="password" name="password">
-                </div>
-                <div class="form-group">
-                    <label for="apassword"style="color:#8A92A6;">비밀번호 확인</label>
-                    <input type="apassword" class="form-control form-control-lg" id="apassword" name="apassword">
+                <div class="form-group gray">
+                  <label for="email" class="form-label" >이메일 주소</label>
+                    <input type="email" class="form-control" id="email" name="email"aria-describedby="emailHelp">
                 </div>
 
+                <div class="form-group gray">
+                    <label for="password">비밀번호</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <div class="form-group gray">
+                    <label for="apassword">비밀번호 확인</label>
+                    <input type="password" class="form-control" id="apassword" name="apassword">
+                </div>
+
+                <button id="confirmBtn" onclick="checkPassword()" type="button"class="btn btn-primary confirm">비밀번호 확인</button>
+
+                <div class="col mt-3">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="customer" value="CUSTOMER">
+                        <input class="form-check-input" type="radio" name="role" id="customer" value="ROLE_CUSTOMER">
                         <label class="form-check-label" for="customer">일반 회원</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="seller" value="SELLER">
+                        <input class="form-check-input" type="radio" name="role" id="seller" value="ROLE_SELLER">
                         <label class="form-check-label" for="seller">판매자 회원</label>
                     </div>
-
+                </div>
                 <div style="display:flex;justify-content:center;">
-                    <button type="submit" class="btn btn-primary" style="height: 44px;width: 188px;background: #FEBD01;border:0px;border-radius: 4px;">Sign In</button>
+                    <button id="signInBtn"type="submit" disabled="disabled" class="btn btn-primary submit">회원 가입</button>
                 </div>
             </form>
 

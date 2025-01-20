@@ -1,0 +1,31 @@
+
+
+<!DOCTYPE html>
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout2}"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Error page</title>
+    <link rel="stylesheet" th:href="@{css/background.css}">
+</head>
+<!--content-->
+<th:block layout:fragment="content">
+
+    <div class="container">
+        <div class="row">
+            <div th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
+                <h1 th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|"></h1>
+                <p th:utext="${errorMessage}"></p>
+                <a th:href="@{/}">메인 화면으로 돌아가기</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+</th:block>
+
+
+</html>

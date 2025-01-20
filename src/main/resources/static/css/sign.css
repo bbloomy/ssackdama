@@ -1,0 +1,45 @@
+
+#createbtn{
+    display:flex;
+    font-family: Inter;
+    font-size: 16px;
+    color:#8A92A6;
+    justify-content: center;
+}
+.title{
+display:flex;
+font-family: Inter;
+font-style:Semi Bold;
+font-size: 33px;
+justify-content: center;
+}
+
+.sign-up-in-form{
+     width: 600px;
+     height: 546px;
+     left: 462px;
+     top: 190px;
+     padding:100px;
+}
+.form-group.gray{
+    color: #8A92A6;
+    padding:5px;
+}
+.container.centered{
+    display:flex;
+    justify-content: center;
+}
+.submit{
+    height: 44px;
+    width: 188px;
+    background: #FEBD01;
+    border:0px;
+    border-radius: 4px;
+    margin:20px;
+}
+.confirm{
+    background:#8A92A6;
+    border:0px;
+    border-radius: 4px;
+
+}

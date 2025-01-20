@@ -10,13 +10,14 @@ import java.util.List;
 
 public class Orders extends  BaseEntity{
 
-     @ManyToOne(fetch=FetchType.LAZY)
-     @JoinColumn(name="users_id")//join한 컬럼의 pk의 이름을 users_id로 하겠다. User의 기본키랑 자동으로 매핑
+     @ManyToOne(fetch=FetchType.LAZY,cascade = CascadeType.ALL)
+     @JoinColumn(name="member_id")//join한 컬럼의 pk의 이름을 users_id로 하겠다. User의 기본키랑 자동으로 매핑
+
      //만약, name을 작성하지 않는다면, 자동으로 table명_pk명 으로 join된다.
-     private User user;
+     private Member member;
 
      private Date orderDate;
 
-    @OneToMany(mappedBy = "id",cascade=CascadeType.ALL ,orphanRemoval = true,fetch=FetchType.LAZY )
+    @OneToMany(mappedBy = "orders",cascade=CascadeType.ALL ,orphanRemoval = true,fetch=FetchType.LAZY )
     private List<OrderDetail> orderItems=new ArrayList<>();
 }

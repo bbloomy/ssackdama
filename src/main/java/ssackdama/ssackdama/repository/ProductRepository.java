@@ -1,14 +1,11 @@
 package ssackdama.ssackdama.repository;
-
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import ssackdama.ssackdama.domain.User;
+import ssackdama.ssackdama.domain.Product;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    @Query("select u from User u where u.email = ?1")
-    User findOneByEmail(String email);
+
 }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout2}"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="stylesheet" th:href="@{css/info.css}">
+    <link rel="stylesheet" th:href="@{css/background.css}">
+
+</head>
+<!--content-->
+<th:block layout:fragment="content">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-3 border-right">
+                <!--breadcrumb-->
+                <div class="d-flex">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a th:href="@{/}">홈</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">정보</li>
+                        </ol>
+                    </nav>
+                </div>
+                <!--user프로필-->
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+
+                    <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                    <span class="font-weight-bold"  sec:authentication="name"></span>
+                    <span class="text-black-50"><a th:href="@{/userInfo}">회원정보 수정하러 가기</a></span>
+                </div>
+            </div>
+            <div class="col-md-9 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">내 가게</h4>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item" style="display:flex;align-items: center;flex-direction: row-reverse;">
+                            <div class="col-11">
+                                <a href="#가게명" style="">
+                                    <div class="justify-content-between d-flex w-100 ">
+                                        <h5 class="mb-1">가게명
+                                        </h5>
+                                        <small class="text-muted">2022.03.03.</small>
+                                    </div>
+                                    <small class="text-muted">서울시 도봉구 도롱뇽동</small>
+                                </a>
+                            </div>
+
+                            <div class="col-1 heart-icon">
+                                <a href="#삭제"><i class="fas fa-lg fa-times"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 text-center"><button  onclick = "location.href = '/manage/store/add'"  class="btn btn-primary profile-button" type="button">가게 추가하기</button></div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+    </div>
+
+</th:block>
+
+
+</html>
